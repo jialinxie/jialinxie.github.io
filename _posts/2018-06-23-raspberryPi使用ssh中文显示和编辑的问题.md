@@ -1,0 +1,91 @@
+环境
+
+1.raspberryPi 3B+, python2.7 + python3.6
+
+2.mac OSX 10.13.3 ssh(osx terminal), Termius
+
+
+
+使用OSX自带的ssh连接树莓派的时候，ssh中不能输入和输出中文，使用vnc打开terminal也一样
+
+
+
+相关error:
+
+SyntaxError: Non-ASCII character '\xe4' in file test1.py on line 2, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+
+
+
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xe4 in position 0: ordinal not in range(128)
+
+###解决方案
+
+####配置树莓派端
+
+1.进入系统的语言配置界面
+
+```
+sudo raspi-config
+```
+
+2.选择语言
+
+<!--空格操作勾选/取消勾选，tab 跳转到[确定，取消]选择区域 -->
+
+1. 选择 Localisation Options
+2. 选择 Change Locale
+3. 取消勾选 en_GB.UTF-8 UTF-8，勾选 en_US.UTF-8, zh_CN.UTF-8 UTF-8, zh_CN.GBK GBK
+
+3.安装中文字库
+
+```
+sudo apt-get install ttf-wqy-zenhei
+```
+
+4.检查raspberryPi 的locale
+
+```
+locale
+```
+
+参考我的locale信息
+
+```
+pi@raspberrypi:~ $ locale
+LANG=zh_CN.UTF-8
+LANGUAGE=zh_CN.UTF-8
+LC_CTYPE="zh_CN.UTF-8"
+LC_NUMERIC="zh_CN.UTF-8"
+LC_TIME="zh_CN.UTF-8"
+LC_COLLATE="zh_CN.UTF-8"
+LC_MONETARY="zh_CN.UTF-8"
+LC_MESSAGES="zh_CN.UTF-8"
+LC_PAPER="zh_CN.UTF-8"
+LC_NAME="zh_CN.UTF-8"
+LC_ADDRESS="zh_CN.UTF-8"
+LC_TELEPHONE="zh_CN.UTF-8"
+LC_MEASUREMENT="zh_CN.UTF-8"
+LC_IDENTIFICATION="zh_CN.UTF-8"
+LC_ALL=zh_CN.UTF-8
+```
+
+
+
+###配置OSX端
+
+```
+$ locale
+LANG="en_US.UTF-8"
+LC_COLLATE="en_US.UTF-8"
+LC_CTYPE="en_US.UTF-8"
+LC_MESSAGES="en_US.UTF-8"
+LC_MONETARY="en_US.UTF-8"
+LC_NUMERIC="en_US.UTF-8"
+LC_TIME="en_US.UTF-8"
+LC_ALL="en_US.UTF-8"
+```
+
+
+
+确保每一项都有值，如果有缺少，需要在~/.bash_profile 中添加
+
