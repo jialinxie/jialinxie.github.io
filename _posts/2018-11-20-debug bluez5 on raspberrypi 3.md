@@ -1,4 +1,9 @@
-# debug bluez5 on raspberrypi 3
+---
+layout: post
+title: debug bluez5 on raspberrypi 3
+date: 2018-11-20
+tags: raspberry 3B
+---
 
 ```
 pi@scmbot:~ $ sudo bluetoothctl
@@ -67,8 +72,6 @@ Code: [Select all](https://www.raspberrypi.org/forums/viewtopic.php?p=521067#)
 ```c
 DisablePlugins = pnat
 ```
-
-
 
 
 

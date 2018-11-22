@@ -1,14 +1,19 @@
-#test bluez4 on arm-linux with kernel 4.1.*
+---
+layout: post
+title: test bluez4 on arm-linux
+date: 2018-11-20
+tags: bluez BT bluez4
+---
 
-##初始化蓝牙
+初始化蓝牙
 
-```sh /etc/enable_bt.sh
+```c
 sh /etc/enable_bt.sh
 ```
 
 查看蓝牙,获取设备编号 hci0
 
-```                                                                                                      
+```                                                                                                      c
 hciconfig -a
 hci0:   Type: BR/EDR  Bus: UART
         BD Address: 20:70:02:A0:00:00  ACL MTU: 1021:8  SCO MTU: 64:1
@@ -21,14 +26,15 @@ hci0:   Type: BR/EDR  Bus: UART
         Link mode: SLAVE ACCEPT
 ```
 
-##开启蓝牙
-```
+开启蓝牙
+
+```c
 hciconfig hci0 up
 ```
 
-##扫描蓝牙
+扫描蓝牙
 
-```
+```c
 hcitool scan                                                                                                       
 
 Scanning ...
@@ -36,7 +42,7 @@ Scanning ...
 
 ```
 
-##连接手机
+连接手机
 
 ```
 agent -a hci0 0000 E0:19:1D:A4:62:64                                                                               
@@ -46,7 +52,7 @@ Launch helper exited with unknown return code 1
 
 ```
 
-##使设备可见可连接
+使设备可见可连接
 
 ```
 hciconfig hci0 piscan
@@ -133,7 +139,7 @@ obex_test -b local <chanel 号>
 #############################################################
 device->phone			//test OK
 
-##查看发送chanel
+查看发送chanel
 
 ```
 sdptool browse E0:19:1D:A4:62:64
@@ -154,7 +160,7 @@ Profile Descriptor List:
 
 	获取OBEX Object Push chanel : 12
 
-##发送文件
+发送文件
 
 ```
 obex_test -b E0:19:1D:A4:62:64 12

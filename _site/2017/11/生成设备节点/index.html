@@ -1,0 +1,97 @@
+<h3 id="在mini-linux测试过可以生成设备节点">在mini linux测试过，可以生成设备节点</h3>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include &lt;linux/init.h&gt;
+#include &lt;linux/module.h&gt;
+#include &lt;linux/platform_device.h&gt;
+#include &lt;linux/miscdevice.h&gt;
+#include &lt;linux/fs.h&gt;
+</span>
+<span class="cp">#define DRIVER_NAME "hello_ctl"
+#define DEVICE_NAME "hello_ctl123"
+</span>
+<span class="n">MODULE_LICENSE</span><span class="p">(</span><span class="s">"Dual BSD/GPL"</span><span class="p">);</span>
+<span class="n">MODULE_AUTHOR</span><span class="p">(</span><span class="s">"TOPEET"</span><span class="p">);</span>
+
+<span class="k">static</span> <span class="kt">long</span> <span class="n">hello_ioctl</span><span class="p">(</span><span class="k">struct</span> <span class="n">file</span> <span class="o">*</span><span class="n">files</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">cmd</span><span class="p">,</span> <span class="kt">unsigned</span> <span class="kt">long</span> <span class="n">arg</span><span class="p">){</span>
+	<span class="n">printk</span><span class="p">(</span><span class="s">"cmd is %d, arg is %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">cmd</span><span class="p">,</span> <span class="n">arg</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">hello_release</span><span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="n">inode</span><span class="p">,</span> <span class="k">struct</span> <span class="n">file</span> <span class="o">*</span><span class="n">file</span><span class="p">){</span>
+	<span class="n">printk</span><span class="p">(</span><span class="n">KERN_EMERG</span> <span class="s">"hello release</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">hello_open</span><span class="p">(</span><span class="k">struct</span> <span class="n">inode</span> <span class="o">*</span><span class="n">inode</span><span class="p">,</span> <span class="k">struct</span> <span class="n">file</span> <span class="o">*</span><span class="n">file</span><span class="p">){</span>
+	<span class="n">printk</span><span class="p">(</span><span class="n">KERN_EMERG</span> <span class="s">"hello open</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="k">struct</span> <span class="n">file_operations</span> <span class="n">hello_ops</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="p">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">THIS_MODULE</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">open</span>  <span class="o">=</span> <span class="n">hello_open</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">release</span> <span class="o">=</span> <span class="n">hello_release</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">unlocked_ioctl</span> <span class="o">=</span> <span class="n">hello_ioctl</span><span class="p">,</span>
+<span class="p">};</span>
+<span class="k">static</span> <span class="k">struct</span> <span class="n">miscdevice</span> <span class="n">hello_dev</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="p">.</span><span class="n">minor</span> <span class="o">=</span> <span class="n">MISC_DYNAMIC_MINOR</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">name</span>  <span class="o">=</span> <span class="n">DEVICE_NAME</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">fops</span>  <span class="o">=</span> <span class="o">&amp;</span><span class="n">hello_ops</span><span class="p">,</span>
+<span class="p">};</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">hello_shutdown</span><span class="p">(</span><span class="k">struct</span> <span class="n">platform_device</span> <span class="o">*</span><span class="n">pdv</span><span class="p">){</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="n">hello_suspend</span><span class="p">(</span><span class="k">struct</span> <span class="n">platform_device</span> <span class="o">*</span><span class="n">pdv</span><span class="p">){</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">static</span> <span class="kt">int</span> <span class="n">hello_probe</span><span class="p">(</span><span class="k">struct</span> <span class="n">platform_device</span> <span class="o">*</span><span class="n">pdv</span><span class="p">){</span>
+	<span class="n">printk</span><span class="p">(</span><span class="n">KERN_EMERG</span> <span class="s">"</span><span class="se">\t</span><span class="s">initialzied!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">misc_register</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hello_dev</span><span class="p">);</span>
+
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">hello_remove</span><span class="p">(</span><span class="k">struct</span> <span class="n">platform_device</span> <span class="o">*</span><span class="n">pdv</span><span class="p">){</span>
+	<span class="n">printk</span><span class="p">(</span><span class="n">KERN_EMERG</span> <span class="s">"</span><span class="se">\t</span><span class="s">remove</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">misc_deregister</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hello_dev</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">hello_resume</span><span class="p">(</span><span class="k">struct</span> <span class="n">platform_device</span> <span class="o">*</span><span class="n">pdv</span><span class="p">){</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">struct</span> <span class="n">platform_driver</span> <span class="n">hello_driver</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="p">.</span><span class="n">probe</span> <span class="o">=</span> <span class="n">hello_probe</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">remove</span> <span class="o">=</span> <span class="n">hello_remove</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">shutdown</span> <span class="o">=</span> <span class="n">hello_shutdown</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">suspend</span> <span class="o">=</span> <span class="n">hello_suspend</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">resume</span> <span class="o">=</span> <span class="n">hello_resume</span><span class="p">,</span>
+	<span class="p">.</span><span class="n">driver</span> <span class="o">=</span> <span class="p">{</span>
+		<span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">DRIVER_NAME</span><span class="p">,</span>
+		<span class="p">.</span><span class="n">owner</span> <span class="o">=</span> <span class="n">THIS_MODULE</span><span class="p">,</span>
+	<span class="p">}</span>
+<span class="p">};</span>
+
+<span class="k">static</span> <span class="kt">int</span> <span class="n">hello_init</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+	<span class="kt">int</span> <span class="n">DriverState</span><span class="p">;</span>
+	
+	<span class="n">printk</span><span class="p">(</span><span class="n">KERN_EMERG</span> <span class="s">"HELLO WORLD enter!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">DriverState</span> <span class="o">=</span> <span class="n">platform_driver_register</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hello_driver</span><span class="p">);</span>
+	
+	<span class="n">printk</span><span class="p">(</span><span class="n">KERN_EMERG</span> <span class="s">"</span><span class="se">\t</span><span class="s">DriverState is %d</span><span class="se">\n</span><span class="s">"</span><span class="p">,</span> <span class="n">DriverState</span><span class="p">);</span>
+	<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="n">hello_exit</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+	<span class="n">printk</span><span class="p">(</span><span class="n">KERN_EMERG</span> <span class="s">"HELLO WORLD exit!</span><span class="se">\n</span><span class="s">"</span><span class="p">);</span>
+	<span class="n">platform_driver_unregister</span><span class="p">(</span><span class="o">&amp;</span><span class="n">hello_driver</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">module_init</span><span class="p">(</span><span class="n">hello_init</span><span class="p">);</span>
+<span class="n">module_exit</span><span class="p">(</span><span class="n">hello_exit</span><span class="p">);</span>
+</code></pre>
+</div>
+

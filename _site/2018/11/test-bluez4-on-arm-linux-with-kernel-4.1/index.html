@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>test bluez4 on arm-linux</title>
+  <meta name="description" content="初始化蓝牙">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="test bluez4 on arm-linux">
+  <meta name="twitter:description" content="初始化蓝牙">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="test bluez4 on arm-linux">
+  <meta property="og:description" content="初始化蓝牙">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/11/test-bluez4-on-arm-linux-with-kernel-4.1/">
+  <link rel="alternate" type="application/rss+xml" title="jacky" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 jacky 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="jacky logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for jacky" class="blog-button">jacky</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">A technique blog for jacky</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">here are my artitles about work(embeded system develop, docker, etc.) and life(cook, hiking)</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="https://github.com/jialinxie" target="_blank" title="My Projects">Projects</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/https://github.com/jialinxie" title="@https://github.com/jialinxie 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:lin990033@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-red"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-11-20 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-11-20</time> &#8226; <span class="post-meta__tags tags">bluez BT bluez4</span>
+    </div>
+    <h1 class="post-title">test bluez4 on arm-linux</h1>
+  </header>
+
+  <section class="post">
+    <p>初始化蓝牙</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">sh</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">enable_bt</span><span class="p">.</span><span class="n">sh</span>
+</code></pre>
+</div>
+
+<p>查看蓝牙,获取设备编号 hci0</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">hciconfig</span> <span class="o">-</span><span class="n">a</span>
+<span class="n">hci0</span><span class="o">:</span>   <span class="n">Type</span><span class="o">:</span> <span class="n">BR</span><span class="o">/</span><span class="n">EDR</span>  <span class="n">Bus</span><span class="o">:</span> <span class="n">UART</span>
+        <span class="n">BD</span> <span class="n">Address</span><span class="o">:</span> <span class="mi">20</span><span class="o">:</span><span class="mi">70</span><span class="o">:</span><span class="mo">02</span><span class="o">:</span><span class="n">A0</span><span class="o">:</span><span class="mo">00</span><span class="o">:</span><span class="mo">00</span>  <span class="n">ACL</span> <span class="n">MTU</span><span class="o">:</span> <span class="mi">1021</span><span class="o">:</span><span class="mi">8</span>  <span class="n">SCO</span> <span class="n">MTU</span><span class="o">:</span> <span class="mi">64</span><span class="o">:</span><span class="mi">1</span>
+        <span class="n">DOWN</span> 
+        <span class="n">RX</span> <span class="n">bytes</span><span class="o">:</span><span class="mi">604</span> <span class="n">acl</span><span class="o">:</span><span class="mi">0</span> <span class="n">sco</span><span class="o">:</span><span class="mi">0</span> <span class="n">events</span><span class="o">:</span><span class="mi">30</span> <span class="n">errors</span><span class="o">:</span><span class="mi">0</span>
+        <span class="n">TX</span> <span class="n">bytes</span><span class="o">:</span><span class="mi">398</span> <span class="n">acl</span><span class="o">:</span><span class="mi">0</span> <span class="n">sco</span><span class="o">:</span><span class="mi">0</span> <span class="n">commands</span><span class="o">:</span><span class="mi">30</span> <span class="n">errors</span><span class="o">:</span><span class="mi">0</span>
+        <span class="n">Features</span><span class="o">:</span> <span class="mh">0xbf</span> <span class="mh">0xfe</span> <span class="mh">0xcf</span> <span class="mh">0xfe</span> <span class="mh">0xdb</span> <span class="mh">0xff</span> <span class="mh">0x7b</span> <span class="mh">0x87</span>
+        <span class="n">Packet</span> <span class="n">type</span><span class="o">:</span> <span class="n">DM1</span> <span class="n">DM3</span> <span class="n">DM5</span> <span class="n">DH1</span> <span class="n">DH3</span> <span class="n">DH5</span> <span class="n">HV1</span> <span class="n">HV2</span> <span class="n">HV3</span> 
+        <span class="n">Link</span> <span class="n">policy</span><span class="o">:</span> <span class="n">RSWITCH</span> <span class="n">SNIFF</span> 
+        <span class="n">Link</span> <span class="n">mode</span><span class="o">:</span> <span class="n">SLAVE</span> <span class="n">ACCEPT</span>
+</code></pre>
+</div>
+
+<p>开启蓝牙</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">hciconfig</span> <span class="n">hci0</span> <span class="n">up</span>
+</code></pre>
+</div>
+
+<p>扫描蓝牙</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">hcitool</span> <span class="n">scan</span>                                                                                                       
+
+<span class="n">Scanning</span> <span class="p">...</span>
+        <span class="n">E0</span><span class="o">:</span><span class="mi">19</span><span class="o">:</span><span class="mi">1</span><span class="n">D</span><span class="o">:</span><span class="n">A4</span><span class="o">:</span><span class="mi">62</span><span class="o">:</span><span class="mi">64</span>       <span class="n">HUAWEI</span> <span class="n">MT7</span><span class="o">-</span><span class="n">TL00</span>
+
+</code></pre>
+</div>
+
+<p>连接手机</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>agent -a hci0 0000 E0:19:1D:A4:62:64                                                                               
+
+Can't find adapter hci0
+Launch helper exited with unknown return code 1
+
+</code></pre>
+</div>
+
+<p>使设备可见可连接</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>hciconfig hci0 piscan
+</code></pre>
+</div>
+
+<p><em>BlueZ bug</em></p>
+
+<p>0:设备蓝牙无法连接手机/电脑</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>hcitool scan                                                                                                       
+
+Scanning ...
+        E0:19:1D:A4:62:64       HUAWEI MT7-TL00
+
+agent -a hci0 0000 20:16:D8:FE:58:72                                                                            
+
+Can't find adapter hci0
+Launch helper exited with unknown return code 1
+
+agent -a hci0 0000 E0:19:1D:A4:62:64                                                                               
+
+Can't find adapter hci0
+Launch helper exited with unknown return code 1
+
+hciconfig -a
+
+hci0:   Type: BR/EDR  Bus: UART
+        BD Address: 20:70:02:A0:00:00  ACL MTU: 1021:8  SCO MTU: 64:1
+        UP RUNNING 
+        RX bytes:9488 acl:0 sco:0 events:163 errors:0
+        TX bytes:1475 acl:0 sco:0 commands:114 errors:0
+        Features: 0xbf 0xfe 0xcf 0xfe 0xdb 0xff 0x7b 0x87
+        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3 
+        Link policy: RSWITCH SNIFF 
+        Link mode: SLAVE ACCEPT 
+        Name: 'BCM20702A1 Generic UART Class 1 @ 26 MHz'
+        Class: 0x000000
+        Service Classes: Unspecified
+        Device Class: Miscellaneous, 
+        HCI Version: 4.0 (0x6)  Revision: 0x1000
+        LMP Version: 4.0 (0x6)  Subversion: 0x220e
+        Manufacturer: Broadcom Corporation (15)
+</code></pre>
+</div>
+
+<p>1.手机不能连接设备蓝牙
+输入配对密钥0000或1234，连接不上</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>agent 0000
+
+Can't get default adapter
+Launch helper exited with unknown return code 1
+</code></pre>
+</div>
+
+<p>#############################################################
+pair with phone and BT, test OK</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>source /etc/enable_bt.sh
+bluetoothd --udev
+hciconfig hci0 piscan
+agent 0000 &amp;
+sdptool add OPUSH
+</code></pre>
+</div>
+
+<p>#############################################################
+phone-&gt;device			test FAIL!
+添加本机 OBEX Object Push 服务</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sdptool add OPUSH
+</code></pre>
+</div>
+
+<p>查询开发板上的 OBEX Object 服务 channel 号</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>sdptool browse local
+</code></pre>
+</div>
+
+<p>等待接收文件</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>obex_test -b local &lt;chanel 号&gt;
+</code></pre>
+</div>
+
+<p>#############################################################
+device-&gt;phone			//test OK</p>
+
+<p>查看发送chanel</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sdptool browse E0:19:1D:A4:62:64
+
+Service Name: OBEX Object Push
+Service RecHandle: 0x1000c
+Service Class ID List:
+  "OBEX Object Push" (0x1105)
+Protocol Descriptor List:
+  "L2CAP" (0x0100)
+  "RFCOMM" (0x0003)
+    Channel: 12
+  "OBEX" (0x0008)
+Profile Descriptor List:
+  "OBEX Object Push" (0x1105)
+    Version: 0x0100
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>获取OBEX Object Push chanel : 12
+</code></pre>
+</div>
+
+<p>发送文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>obex_test -b E0:19:1D:A4:62:64 12
+
+Using Bluetooth RFCOMM transport
+OBEX Interactive test client/server.
+
+c 			//选择连接
+Connect OK!
+Version: 0x10. Flags: 0x00
+x				//选择发送
+PUSH filename&gt; /opt/test1.txt
+name=/opt/test1.txt, size=12
+Going to send /opt/test1.txt(test1.txt), 12 bytes
+Filling stream!
+Filling stream!
+PUT successful	//发送成功
+</code></pre>
+</div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/11/test-bluez-5.x-on-arm-linux-with-kernel-4.1.x/" title="link to Test bluez 5.x on arm Linux with kernel 4.1.x">Test bluez 5.x on arm Linux with kernel 4.1.x</a></h2>
+       <p class="excerpt">test bluez 5.x on arm-linux platform from zsjsh /etc/enable_bt.shcd /usr/libexec/bluetooth/./bluetoothd -C  &amp;hciconfig hci0 uphciconfig hci0 piscan#不执行会报错 （Using X11 for dbus-daemon autolaunch was disabled at compile time, set your DBUS_SESSIO...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-11-20 00:00:00 +0800" class="post-list__meta--date date">2018-11-20</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/11/test-bluez-5.x-on-arm-linux-with-kernel-4.1.x/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/11/test-bluez4-on-arm-linux-with-kernel-4.1/";
+        this.page.identifier = "/2018/11/test-bluez4-on-arm-linux-with-kernel-4.1/";
+    };
+
+    var disqus_shortname = 'vno-jekyll';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-11-22 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://onev.cat">@onevcat</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2018</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>

@@ -1,0 +1,137 @@
+<h1 id="使用zonedetect获取当前位置的时区">使用zoneDetect获取当前位置的时区</h1>
+
+<p>获取时区的方案分为在线版和离线版，在嵌入式设备上一般使用离线版本。参考信息如下：</p>
+
+<p><strong>Time Zone Location Web Services</strong></p>
+
+<ul>
+  <li><a href="https://developers.google.com/maps/documentation/timezone/">Google Maps Time Zone API</a></li>
+  <li><a href="https://docs.microsoft.com/en-us/rest/api/maps/timezone">Microsoft Azure Maps Time Zone API</a></li>
+  <li><a href="http://www.geonames.org/export/web-services.html#timezone">GeoNames Time Zone API</a></li>
+  <li><a href="https://timezonedb.com/api">TimeZoneDB API</a></li>
+  <li><a href="https://askgeo.com/">AskGeo</a> - commercial (but <a href="https://stackoverflow.com/a/5519523/634824">arguably more accurate than GeoNames</a>)</li>
+  <li><a href="https://www.geogarage.com/blog/news-1/post/geogarage-time-zone-api-31">GeoGarage Time Zone API</a> - commercial, focusing on Nautical time zones.</li>
+</ul>
+
+<p><strong>Raw Time Zone Boundary Data</strong></p>
+
+<ul>
+  <li><a href="https://github.com/evansiroky/timezone-boundary-builder">Timezone Boundary Builder</a> - builds time zone shapefiles from OpenStreetMaps map data. Includes territorial waters near coastlines.</li>
+</ul>
+
+<p>The following projects have previously been sources of time zone boundary data, but are no longer actively maintained.</p>
+
+<ul>
+  <li><a href="http://efele.net/maps/tz/world/">tz_world</a> - the original shapefile data from Eric Muller</li>
+  <li><a href="https://github.com/straup/whereonearth-timezone">whereonearth-timezone</a> - GeoJSON version with WOEDB data merged in</li>
+</ul>
+
+<p><strong>Time Zone Geolocation Offline Implementations</strong></p>
+
+<p>Implementations that use the Timezone Boundary Builder data</p>
+
+<ul>
+  <li><a href="https://github.com/evansiroky/node-geo-tz">node-geo-tz</a> - JavaScript library</li>
+  <li><a href="https://github.com/darkskyapp/tz-lookup/">tz-lookup</a> - JavaScript library</li>
+  <li><a href="https://github.com/mj1856/GeoTimeZone">GeoTimeZone</a> - .NET library</li>
+  <li><a href="https://github.com/MrMinimal64/timezonefinder">timezonefinder</a> - Python library</li>
+  <li><a href="https://github.com/BertoldVdb/ZoneDetect">ZoneDetect</a> - C library</li>
+  <li><a href="https://github.com/RomanIakovlev/timeshape">Timeshape</a> - Java library</li>
+</ul>
+
+<p>Implementations that use the older tz_world data</p>
+
+<ul>
+  <li><a href="https://github.com/bradfitz/latlong">latlong</a> - Go library (Read <a href="https://plus.google.com/u/0/+BradFitzpatrick/posts/XVyy1bAzkZd">this post</a> also.)</li>
+  <li><a href="https://sites.google.com/a/edval.biz/www/mapping-lat-lng-s-to-timezones">TimeZoneMapper</a> - Java library</li>
+  <li><a href="https://github.com/mattbornski/tzwhere">tzwhere</a> - JavaScript/Node library</li>
+  <li><a href="https://github.com/pegler/pytzwhere">pytzwhere</a> - Python library</li>
+  <li><a href="https://github.com/gunyarakun/timezone_finder">timezone_finder</a> - Ruby library</li>
+  <li><a href="https://github.com/drtimcooper/LatLongToTimezone">LatLongToTimeZone</a> - Java and Swift libraries</li>
+  <li><a href="https://derickrethans.nl/what-time-is-it.html">What Time is it here?</a> - Blog post describing PHP and MongoDB</li>
+</ul>
+
+<p><strong>Libraries that call one of the web services</strong></p>
+
+<ul>
+  <li><a href="https://rubygems.org/gems/timezone">timezone</a> - Ruby gem that calls GeoNames</li>
+  <li><a href="https://askgeo.com/#libraries">AskGeo</a> has its own libraries for calling from Java or .Net</li>
+  <li><a href="http://www.geonames.org/export/client-libraries.html">GeoNames</a> has client libraries for just about everything</li>
+</ul>
+
+<p><strong>Other Ideas</strong></p>
+
+<ul>
+  <li>Find the nearest city <a href="https://stackoverflow.com/a/5584826/634824">with an R-Tree</a></li>
+  <li>Find the nearest city <a href="https://stackoverflow.com/a/13849653/634824">with MySQL</a></li>
+</ul>
+
+<p><em>Please update this list if you know of any others</em></p>
+
+<p>Also, note that the nearest-city approach may not yield the “correct” result, just an approximation.</p>
+
+<p><strong>Conversion To Windows Zones</strong></p>
+
+<p>Most of the methods listed will return an IANA time zone id. If you need to convert to a Windows time zone for use with the <code class="highlighter-rouge">TimeZoneInfo</code> class in .NET, use the <a href="https://github.com/mj1856/TimeZoneConverter">TimeZoneConverter</a> library.</p>
+
+<p><strong>Don’t use zone.tab</strong></p>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Tz_database">tz database</a> includes a file called <a href="https://en.wikipedia.org/wiki/Zone.tab"><code class="highlighter-rouge">zone.tab</code></a>. This file is primarily used to present a list of time zones for a user to pick from. It includes the latitude and longitude coordinates for the point of reference for each time zone. This allows a map to be created highlighting these points. For example, see the interactive map shown on <a href="https://momentjs.com/timezone/">the moment-timezone home page</a>.</p>
+
+<p>While it may be tempting to use this data to resolve the time zone from a latitude and longitude coordinates, consider that these are points - not boundaries. The best one could do would be to determine the <em>closest</em> point, which in many cases will not be the correct point.</p>
+
+<p>Consider the following example:</p>
+
+<p>​                            <img src="https://i.stack.imgur.com/tjd5u.png" alt="Time Zone Example Art" /></p>
+
+<p>The two squares represent different time zones, where the black dot in each square is the reference location, such as what can be found in zone.tab. The blue dot represents the location we are attempting to find a time zone for. Clearly, this location is within the orange zone on the left, but if we just look at closest distance to the reference point, it will resolve to the greenish zone on the right.</p>
+
+<p><a href="https://stackoverflow.com/a/16086964">share</a><a href="https://stackoverflow.com/posts/16086964/edit">improve this answer</a></p>
+
+<p><a href="https://stackoverflow.com/posts/16086964/revisions">edited May 11 at 3:58</a></p>
+
+<p>通过查阅上述的开源库，js版，python版和c版都已经测试成功，java和.net由于开发环境限制暂时不考虑测试。</p>
+
+<p><strong>js版测试步骤</strong></p>
+
+<p>只需要npm install [库名称]，然后编写.js文件，使用node [.js文件]即可运行并检查结果。</p>
+
+<p><strong>C版-ZoneDetect-测试步骤</strong></p>
+
+<p>需要先编译出library中的动态库</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">make</span>
+</code></pre>
+</div>
+
+<p>生成libzoneDetect.so, 然后编译demo.，</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">gcc</span> <span class="o">-</span><span class="n">o</span> <span class="n">demo</span> <span class="n">dmeo</span><span class="p">.</span><span class="n">c</span> <span class="o">-</span><span class="n">L</span><span class="p">.</span> <span class="o">-</span><span class="n">lzoneDetect</span>
+</code></pre>
+</div>
+
+<p>然后执行测试</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="p">.</span><span class="o">/</span><span class="n">demo</span> <span class="p">..</span><span class="o">/</span><span class="n">library</span><span class="o">/*</span><span class="p">.</span><span class="n">bin</span> <span class="n">lat</span> <span class="n">lon</span>
+</code></pre>
+</div>
+
+<p><em>c版-ZoneDetect-交叉编译测试</em></p>
+
+<p>使用arm-linux-gnueabihf-gcc交叉编译工具链编译</p>
+
+<p>make之前，修改Makefile中的CC</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">CC</span><span class="o">=</span><span class="n">arm</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnueabihf</span><span class="o">-</span><span class="n">gcc</span>
+</code></pre>
+</div>
+
+<p>然后make生成so库</p>
+
+<p>编译测试文件时，注意需要带上-lm(math库)</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">gcc</span> <span class="o">-</span><span class="n">o</span> <span class="n">demo</span> <span class="n">demo</span><span class="p">.</span><span class="n">c</span> <span class="o">-</span><span class="n">L</span><span class="p">.</span> <span class="o">-</span><span class="n">lzoneDetect</span> <span class="o">-</span><span class="n">lm</span>
+</code></pre>
+</div>
+
+<p>在设备上可以执行demo,还需要添加时区名-&gt;utc差值的接口，可参考python版本的实现思路</p>

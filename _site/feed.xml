@@ -1,103 +1,985 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Vno Jekyll</title>
-    <description>Vno Jekyll is a port of my Ghost theme vno.</description>
+    <title>jacky</title>
+    <description>here are my artitles about work(embeded system develop, docker, etc.) and life(cook, hiking)</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 21 Nov 2018 00:50:27 +0800</pubDate>
-    <lastBuildDate>Wed, 21 Nov 2018 00:50:27 +0800</lastBuildDate>
+    <pubDate>Thu, 22 Nov 2018 10:11:13 +0800</pubDate>
+    <lastBuildDate>Thu, 22 Nov 2018 10:11:13 +0800</lastBuildDate>
     <generator>Jekyll v3.4.0</generator>
     
       <item>
-        <title>Hello World - Vno</title>
-        <description>&lt;h4 id=&quot;whats-this&quot;&gt;What’s this&lt;/h4&gt;
+        <title>test bluez4 on arm-linux</title>
+        <description>&lt;p&gt;初始化蓝牙&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/onevcat/vno-jekyll&quot;&gt;Vno Jekyll&lt;/a&gt; is a theme for &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll&lt;/a&gt;. It is a port of my Ghost theme &lt;a href=&quot;https://github.com/onevcat/vno&quot;&gt;vno&lt;/a&gt;, which is originally developed from &lt;a href=&quot;https://github.com/daleanthony/uno&quot;&gt;Dale Anthony’s Uno&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h4 id=&quot;usage&quot;&gt;Usage&lt;/h4&gt;
-
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;git clone https://github.com/onevcat/vno-jekyll.git your_site
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;your_site
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;bundler install
-&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;bundler &lt;span class=&quot;nb&quot;&gt;exec &lt;/span&gt;jekyll serve
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;etc&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enable_bt&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sh&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;Your site with &lt;code class=&quot;highlighter-rouge&quot;&gt;Vno Jekyll&lt;/code&gt; enabled should be accessible in http://127.0.0.1:4000.&lt;/p&gt;
+&lt;p&gt;查看蓝牙,获取设备编号 hci0&lt;/p&gt;
 
-&lt;p&gt;For more information about Jekyll, please visit &lt;a href=&quot;http://jekyllrb.com&quot;&gt;Jekyll’s site&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;hciconfig&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;hci0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;   &lt;span class=&quot;n&quot;&gt;Type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BR&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;EDR&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;Bus&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;UART&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;BD&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Address&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;20&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;70&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;02&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;ACL&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MTU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1021&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;8&lt;/span&gt;  &lt;span class=&quot;n&quot;&gt;SCO&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MTU&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;DOWN&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;RX&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;604&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;acl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sco&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;events&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;TX&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;bytes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;398&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;acl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sco&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;commands&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;30&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;errors&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Features&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xbf&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xfe&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xcf&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xfe&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xdb&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0xff&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x7b&lt;/span&gt; &lt;span class=&quot;mh&quot;&gt;0x87&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;Packet&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;type&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DM1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DM3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DM5&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DH1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DH3&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DH5&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HV1&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HV2&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HV3&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;Link&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;policy&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;RSWITCH&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SNIFF&lt;/span&gt; 
+        &lt;span class=&quot;n&quot;&gt;Link&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;mode&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;SLAVE&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ACCEPT&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;h4 id=&quot;configuration&quot;&gt;Configuration&lt;/h4&gt;
+&lt;p&gt;开启蓝牙&lt;/p&gt;
 
-&lt;p&gt;All configuration could be done in &lt;code class=&quot;highlighter-rouge&quot;&gt;_config.yml&lt;/code&gt;. Remember you need to restart to serve the page when after changing the config file. Everything in the config file should be self-explanatory.&lt;/p&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;hciconfig&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hci0&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;up&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;h4 id=&quot;background-image-and-avatar&quot;&gt;Background image and avatar&lt;/h4&gt;
+&lt;p&gt;扫描蓝牙&lt;/p&gt;
 
-&lt;p&gt;You could replace the background and avatar image in &lt;code class=&quot;highlighter-rouge&quot;&gt;assets/images&lt;/code&gt; folder to change them.&lt;/p&gt;
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;hcitool&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;scan&lt;/span&gt;                                                                                                       
 
-&lt;h4 id=&quot;sites-using-vno&quot;&gt;Sites using Vno&lt;/h4&gt;
+&lt;span class=&quot;n&quot;&gt;Scanning&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;...&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;E0&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;19&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;D&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;A4&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;62&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;64&lt;/span&gt;       &lt;span class=&quot;n&quot;&gt;HUAWEI&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;MT7&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TL00&lt;/span&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://onevcat.com&quot;&gt;My blog&lt;/a&gt; is using &lt;code class=&quot;highlighter-rouge&quot;&gt;Vno Jekyll&lt;/code&gt; as well, you could see how it works in real. There are some other sites using the same theme. You can find them below:&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Site Name&lt;/th&gt;
-      &lt;th&gt;URL&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;OneV’s Den&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;http://onevcat.com&quot;&gt;http://onevcat.com&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;July Tang&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;http://onevcat.com&quot;&gt;http://blog.julytang.xyz&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Harry Lee&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;http://qiuqi.li&quot;&gt;http://qiuqi.li&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;p&gt;连接手机&lt;/p&gt;
 
-&lt;blockquote&gt;
-  &lt;p&gt;If you happen to be using this theme, welcome to &lt;a href=&quot;https://github.com/onevcat/vno-jekyll/pulls&quot;&gt;send me a pull request&lt;/a&gt; to add your site link here. :)&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;agent -a hci0 0000 E0:19:1D:A4:62:64                                                                               
 
-&lt;h4 id=&quot;license&quot;&gt;License&lt;/h4&gt;
+Can't find adapter hci0
+Launch helper exited with unknown return code 1
 
-&lt;p&gt;Great thanks to &lt;a href=&quot;https://github.com/daleanthony&quot;&gt;Dale Anthony&lt;/a&gt; and his &lt;a href=&quot;https://github.com/daleanthony/uno&quot;&gt;Uno&lt;/a&gt;. Vno Jekyll is based on Uno, and contains a lot of modification on page layout, animation, font and some more things I can not remember. Vno Jekyll is followed with Uno and be licensed as &lt;a href=&quot;http://creativecommons.org/licenses/by/4.0/&quot;&gt;Creative Commons Attribution 4.0 International&lt;/a&gt;. See the link for more information.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;使设备可见可连接&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hciconfig hci0 piscan
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;BlueZ bug&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;0:设备蓝牙无法连接手机/电脑&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;hcitool scan                                                                                                       
+
+Scanning ...
+        E0:19:1D:A4:62:64       HUAWEI MT7-TL00
+
+agent -a hci0 0000 20:16:D8:FE:58:72                                                                            
+
+Can't find adapter hci0
+Launch helper exited with unknown return code 1
+
+agent -a hci0 0000 E0:19:1D:A4:62:64                                                                               
+
+Can't find adapter hci0
+Launch helper exited with unknown return code 1
+
+hciconfig -a
+
+hci0:   Type: BR/EDR  Bus: UART
+        BD Address: 20:70:02:A0:00:00  ACL MTU: 1021:8  SCO MTU: 64:1
+        UP RUNNING 
+        RX bytes:9488 acl:0 sco:0 events:163 errors:0
+        TX bytes:1475 acl:0 sco:0 commands:114 errors:0
+        Features: 0xbf 0xfe 0xcf 0xfe 0xdb 0xff 0x7b 0x87
+        Packet type: DM1 DM3 DM5 DH1 DH3 DH5 HV1 HV2 HV3 
+        Link policy: RSWITCH SNIFF 
+        Link mode: SLAVE ACCEPT 
+        Name: 'BCM20702A1 Generic UART Class 1 @ 26 MHz'
+        Class: 0x000000
+        Service Classes: Unspecified
+        Device Class: Miscellaneous, 
+        HCI Version: 4.0 (0x6)  Revision: 0x1000
+        LMP Version: 4.0 (0x6)  Subversion: 0x220e
+        Manufacturer: Broadcom Corporation (15)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;1.手机不能连接设备蓝牙
+输入配对密钥0000或1234，连接不上&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;agent 0000
+
+Can't get default adapter
+Launch helper exited with unknown return code 1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;#############################################################
+pair with phone and BT, test OK&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;source /etc/enable_bt.sh
+bluetoothd --udev
+hciconfig hci0 piscan
+agent 0000 &amp;amp;
+sdptool add OPUSH
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;#############################################################
+phone-&amp;gt;device			test FAIL!
+添加本机 OBEX Object Push 服务&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sdptool add OPUSH
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;查询开发板上的 OBEX Object 服务 channel 号&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sdptool browse local
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;等待接收文件&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;obex_test -b local &amp;lt;chanel 号&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;#############################################################
+device-&amp;gt;phone			//test OK&lt;/p&gt;
+
+&lt;p&gt;查看发送chanel&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sdptool browse E0:19:1D:A4:62:64
+
+Service Name: OBEX Object Push
+Service RecHandle: 0x1000c
+Service Class ID List:
+  &quot;OBEX Object Push&quot; (0x1105)
+Protocol Descriptor List:
+  &quot;L2CAP&quot; (0x0100)
+  &quot;RFCOMM&quot; (0x0003)
+    Channel: 12
+  &quot;OBEX&quot; (0x0008)
+Profile Descriptor List:
+  &quot;OBEX Object Push&quot; (0x1105)
+    Version: 0x0100
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;获取OBEX Object Push chanel : 12
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;发送文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;obex_test -b E0:19:1D:A4:62:64 12
+
+Using Bluetooth RFCOMM transport
+OBEX Interactive test client/server.
+
+c 			//选择连接
+Connect OK!
+Version: 0x10. Flags: 0x00
+x				//选择发送
+PUSH filename&amp;gt; /opt/test1.txt
+name=/opt/test1.txt, size=12
+Going to send /opt/test1.txt(test1.txt), 12 bytes
+Filling stream!
+Filling stream!
+PUT successful	//发送成功
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 </description>
-        <pubDate>Tue, 16 Feb 2016 14:32:24 +0800</pubDate>
-        <link>http://localhost:4000/2016/02/hello-world-vno/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/02/hello-world-vno/</guid>
+        <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/11/test-bluez4-on-arm-linux-with-kernel-4.1/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/11/test-bluez4-on-arm-linux-with-kernel-4.1/</guid>
+        
+        <category>bluez</category>
+        
+        <category>BT</category>
+        
+        <category>bluez4</category>
         
         
       </item>
     
       <item>
-        <title>Sample Post</title>
-        <description>&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+        <title>Test bluez 5.x on arm Linux with kernel 4.1.x</title>
+        <description>&lt;h1 id=&quot;test-bluez-5x-on-arm-linux-platform-from-zsj&quot;&gt;test bluez 5.x on arm-linux platform from zsj&lt;/h1&gt;
 
-&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sh /etc/enable_bt.sh
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+cd /usr/libexec/bluetooth/
+./bluetoothd -C  &amp;amp;
 
-&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+hciconfig hci0 up
 
-&lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+hciconfig hci0 piscan
+
+#不执行会报错 （Using X11 for dbus-daemon autolaunch was disabled at compile time, set your DBUS_SESSION_BUS_ADDRESS instead）
+export $(dbus-launch)
+
+#蓝牙文件传输协议 不启动的话QT5无法传输文件
+/usr/libexec/bluetooth/obexd -d -a -r '/' &amp;amp;
+
+启动一个接收服务
+bt-obex -y -s '/' &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
 
 </description>
-        <pubDate>Mon, 15 Feb 2016 14:32:24 +0800</pubDate>
-        <link>http://localhost:4000/2016/02/sample-post/</link>
-        <guid isPermaLink="true">http://localhost:4000/2016/02/sample-post/</guid>
+        <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/11/test-bluez-5.x-on-arm-linux-with-kernel-4.1.x/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/11/test-bluez-5.x-on-arm-linux-with-kernel-4.1.x/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>debug bluez5 on raspberrypi 3</title>
+        <description>&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pi@scmbot:~ $ sudo bluetoothctl
+[NEW] Controller 00:1B:DC:0F:5A:0C scmbot [default]
+[bluetooth]# power on
+Changing power on succeeded
+[bluetooth]# agent on
+Agent registered
+[bluetooth]# pairable on
+Changing pairable on succeeded
+[bluetooth]# scan on
+Discovery started
+[CHG] Controller 00:1B:DC:0F:5A:0C Discovering: yes
+[NEW] Device DC:2C:26:41:B8:10 MEDION MD86853
+[bluetooth]# scan off
+[CHG] Device DC:2C:26:41:B8:10 RSSI is nil
+Discovery stopped
+[CHG] Controller 00:1B:DC:0F:5A:0C Discovering: no
+[bluetooth]# pair DC:2C:26:41:B8:10
+Attempting to pair with DC:2C:26:41:B8:10
+[CHG] Device DC:2C:26:41:B8:10 Connected: yes
+[agent] PIN code: XXXXXX
+[CHG] Device DC:2C:26:41:B8:10 Modalias: usb:v04E8p7021d011B
+[CHG] Device DC:2C:26:41:B8:10 UUIDs:
+00001000-0000-1000-8000-00805f9b34fb
+00001124-0000-1000-8000-00805f9b34fb
+00001200-0000-1000-8000-00805f9b34fb
+[CHG] Device DC:2C:26:41:B8:10 Paired: yes
+Pairing successful
+[CHG] Device DC:2C:26:41:B8:10 Connected: no
+[bluetooth]# trust DC:2C:26:41:B8:10
+[CHG] Device DC:2C:26:41:B8:10 Trusted: yes
+Changing DC:2C:26:41:B8:10 trust succeeded
+[bluetooth]# connect DC:2C:26:41:B8:10 
+Attempting to connect to DC:2C:26:41:B8:10
+[CHG] Device DC:2C:26:41:B8:10 Connected: yes
+Connection successful
+[CHG] Device DC:2C:26:41:B8:10 Connected: no
+[CHG] Device DC:2C:26:41:B8:10 Class: 0x000540
+[CHG] Device DC:2C:26:41:B8:10 Icon: input-keyboard
+[CHG] Device DC:2C:26:41:B8:10 Connected: yes
+[bluetooth]# quit
+Agent unregistered
+[DEL] Controller 00:1B:DC:0F:5A:0C scmbot [default]
+pi@scmbot:~ $
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Now here’s the trick. Bluez PNAT is not needed and breaks things, so edit main.conf:&lt;/p&gt;
+
+&lt;p&gt;Code: &lt;a href=&quot;https://www.raspberrypi.org/forums/viewtopic.php?p=521067#&quot;&gt;Select all&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/bluetooth/main.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;and add this line towards the top:&lt;/p&gt;
+
+&lt;p&gt;Code: &lt;a href=&quot;https://www.raspberrypi.org/forums/viewtopic.php?p=521067#&quot;&gt;Select all&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;DisablePlugins&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pnat&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;receive-files-on-raspberry-pi-3-with-bluetooth&quot;&gt;&lt;a href=&quot;https://www.raspberrypi.org/forums/viewtopic.php?t=145530#p959280&quot;&gt;Receive files on Raspberry Pi 3 with bluetooth&lt;/a&gt;&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nano /etc/systemd/system/dbus-org.bluez.service
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;and add a ‘ -C’ flag at the end of the ExecStart= line. Reboot, and try to start obexpushd again. Try with sudo if that does not work.&lt;/p&gt;
+
+&lt;p&gt;bluetoothctl代替了bluez-simple-agent&lt;/p&gt;
+
+&lt;p&gt;bluetoothctl怎么配对？&lt;/p&gt;
+
+&lt;p&gt;Bluez-utils has been removed in the Bluez 5 package&lt;/p&gt;
+
+&lt;p&gt;Bluez-simple-agent is renamed, to simple-agent (I think) but bluetoothctl has been added for managing devices. It’s a sweet little CLI used for various tasks like pairing and trusting&lt;/p&gt;
+
+&lt;p&gt;fix “Failed to pair: org.bluez.Error.AlreadyExists”&lt;/p&gt;
+
+&lt;p&gt;##配对成功(iPhone 6s)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;root@edison:~# rfkill unblock bluetooth   
+root@edison:~# bluetoothcutl   
+power on
+[bluetooth]# agent KeyboardDiasplay   
+[bluetooth]# default-agent
+[bluetooth]# scan on   
+[bluetooth]# scan off   
+[bluetooth]# pair &amp;lt;device&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Failed to connect: org.bluez.Error.Failed
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</description>
+        <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/11/debug-bluez5-on-raspberrypi-3/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/11/debug-bluez5-on-raspberrypi-3/</guid>
+        
+        <category>raspberry</category>
+        
+        <category>3B</category>
+        
+        
+      </item>
+    
+      <item>
+        <title>怎么转换srtm hgt数据到osm</title>
+        <description>&lt;h1 id=&quot;怎么转换srtm-hgt数据到osm&quot;&gt;怎么转换SRTM hgt数据到OSM&lt;/h1&gt;
+
+&lt;p&gt;​																	-jacky&lt;/p&gt;
+
+&lt;p&gt;推荐使用工具	&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Phyghtmap&quot;&gt;phyghtmap&lt;/a&gt; &lt;a href=&quot;http://katze.tfiu.de/projects/phyghtmap/&quot;&gt;主页&lt;/a&gt; &lt;a href=&quot;https://www.mankier.com/1/phyghtmap&quot;&gt;使用手册&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;参考环境&lt;/p&gt;
+
+&lt;p&gt;Ubuntu16.04 python3.5&lt;/p&gt;
+
+&lt;h2 id=&quot;第一步-搭建使用环境&quot;&gt;第一步 搭建使用环境&lt;/h2&gt;
+
+&lt;p&gt;####搭建python3.5开发环境&lt;/p&gt;
+
+&lt;p&gt;####验证&lt;/p&gt;
+
+&lt;p&gt;首先验证当前python版本，验证方法如下：&lt;/p&gt;
+
+&lt;p&gt;打开终端(control + alt + T),输入&lt;/p&gt;
+
+&lt;p&gt;这是python2.7的版本，phyghtmap不依赖2.7的版本，只需要3.x的版本&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jacklin@ubuntu:~$ python --version
+Python 2.7.12
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;这是python3.5.2的版本, phyghtmap依赖3.x的版本，所以此版本必须安装，建议&amp;gt;=3.0即可&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jacklin@ubuntu:~$ python3 --version
+Python 3.5.2
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;如果验证python版本号是3.x，则参考如下Case 0&lt;/p&gt;
+
+&lt;p&gt;如果验证python3 没有版本号，则参考如下Case1&lt;/p&gt;
+
+&lt;h5 id=&quot;case-0&quot;&gt;case 0&lt;/h5&gt;
+
+&lt;p&gt;可能当前只安装了python3.x，而且没有修改环境变量，所以只需要给python3换个别名即可&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim ~/.bash_rc
+alias python3=你的python3完整路径
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h5 id=&quot;case1&quot;&gt;case1&lt;/h5&gt;
+
+&lt;p&gt;可能没有安装python3，所以安装即可&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install python3
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;安装完后继续回去验证&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;安装好了继续第二步&lt;/p&gt;
+
+&lt;p&gt;##第二步 下载phyghtmap&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Source distibution: &lt;a href=&quot;http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20.orig.tar.gz&quot;&gt;phyghtmap_2.20.orig.tar.gz&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;下载phyghtmap_2.20.orig.tar.gz,默认放在~/Downlaod目录下&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jacklin@ubuntu:~/Downloads$ ls *.tar.gz
+phyghtmap_2.20.orig.tar.gz
+jacklin@ubuntu:~/Downloads$ tar zxvf phyghtmap_2.20.orig.tar.gz
+phyghtmap-2.20/
+phyghtmap-2.20/MANIFEST.in
+phyghtmap-2.20/docs/
+phyghtmap-2.20/docs/Makefile
+phyghtmap-2.20/docs/phyghtmap.1.html
+phyghtmap-2.20/docs/phyghtmap.1
+phyghtmap-2.20/docs/phyghtmap.help2man
+phyghtmap-2.20/phyghtmap/
+phyghtmap-2.20/phyghtmap/configUtil.py
+phyghtmap-2.20/phyghtmap/hgt.py
+phyghtmap-2.20/phyghtmap/pbfUtil.py
+phyghtmap-2.20/phyghtmap/o5mUtil.py
+phyghtmap-2.20/phyghtmap/varint.py
+phyghtmap-2.20/phyghtmap/__init__.py
+phyghtmap-2.20/phyghtmap/NASASRTMUtil.py
+phyghtmap-2.20/phyghtmap/osmUtil.py
+phyghtmap-2.20/phyghtmap/main.py
+phyghtmap-2.20/PKG-INFO
+phyghtmap-2.20/INSTALL
+phyghtmap-2.20/setup.py
+phyghtmap-2.20/Changelog
+phyghtmap-2.20/README
+phyghtmap-2.20/COPYRIGHT
+phyghtmap-2.20/LICENSE_GPL-2
+解压完毕，进入解压的目录
+jacklin@ubuntu:~/Downloads$ cd phyghtmap-2.20/
+查看解压的文件
+jacklin@ubuntu:~/Downloads/phyghtmap-2.20$ ls
+build      dist     LICENSE_GPL-2  phyghtmap.egg-info  setup.py
+Changelog  docs     MANIFEST.in    PKG-INFO
+COPYRIGHT  INSTALL  phyghtmap      README
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h2 id=&quot;第三步-安装phtghtmap&quot;&gt;第三步 安装phtghtmap&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;查看安装说明
+jacklin@ubuntu:~/Downloads/phyghtmap-2.20$ cat INSTALL 
+The installation requires a working python setuptools installation.
+To install it on a debian-like system say apt-get install python3-setuptools.
+The program itself should run with python &amp;gt;= 3.0.
+
+Some additional requirements have to be installed on your system in order to run
+phyghtmap:
+
+* python3-pkg-resources (on Debian-like systems, say apt-get install
+  python3-pkg-resources)
+* python3-matplotlib (on Debian-like systems, say apt-get install
+	python3-matplotlib)
+* python3-bs4 (on Debian-like systems, say apt-get install
+	python-bs4)
+* python3-numpy (on Debian-like systems, say apt-get install python-numpy)
+
+To install phyghtmap, finally say
+
+sudo python setup.py install
+
+which will install the stuff on your system.
+安装上述依赖库
+jacklin@ubuntu:~/Downloads/phyghtmap-2.20$ sudo apt-get install python3-setuptools
+jacklin@ubuntu:~/Downloads/phyghtmap-2.20$ sudo apt-get install python3-pkg-resources
+jacklin@ubuntu:~/Downloads/phyghtmap-2.20$ sudo apt-get install python3-matplotlib
+jacklin@ubuntu:~/Downloads/phyghtmap-2.20$ sudo apt-get install python3-bs4
+jacklin@ubuntu:~/Downloads/phyghtmap-2.20$ sudo apt-get install python3-numpy
+安装完依赖库，安装phyghtmap
+jacklin@ubuntu:~/Downloads/phyghtmap-2.20$ sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;验证phyghtmap版本&quot;&gt;验证phyghtmap版本&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jacklin@ubuntu:~/Downloads$ phyghtmap -v
+phyghtmap 2.20
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;出现版本号即可使用&lt;/p&gt;
+
+&lt;p&gt;##第四步 转换SRTM hgt数据&lt;/p&gt;
+
+&lt;p&gt;自行下载hgt文件到一个指定文件夹，此处假设hgt文件夹路径在~/Download&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;jacklin@ubuntu:~/Documents/srtm$ cd ~/Downloads/
+jacklin@ubuntu:~/Downloads$ ls
+hgt2Osm
+jacklin@ubuntu:~/Downloads$ cd hgt2Osm/
+jacklin@ubuntu:~/Downloads/hgt2Osm$ ls
+N22E114.hgt  N22E115.hgt  N22E116.hgt
+可见文件夹内有3个hgt文件
+现在转换这3个hgt文件为osm文件，保存在当前目录
+如下命令中，5是等高线最小单位，数字越小，产生的osm文件越大，可自行调整20 100 400 等数据
+jacklin@ubuntu:~/Downloads/hgt2Osm$ phyghtmap -s 5 --start-node-id=$((1&amp;lt;&amp;lt;33)) --start-way-id=$((1&amp;lt;&amp;lt;33)) --max-nodes-per-tile=0 ./*.hgt
+hgt file ./N22E114.hgt: 1201 x 1201 points, bbox: (114.00000, 22.00000, 115.00000, 23.00000)
+hgt file ./N22E115.hgt: 1201 x 1201 points, bbox: (115.00000, 22.00000, 116.00000, 23.00000)
+hgt file ./N22E116.hgt: 1201 x 1201 points, bbox: (116.00000, 22.00000, 117.00000, 23.00000)
+jacklin@ubuntu:~/Downloads/hgt2Osm$ ls -l
+total 357612
+-rw-rw-r-- 1 jacklin jacklin 357525637 10月 27 17:46 lon114.00_117.00lat22.00_23.00_local-source.osm
+-rw-rw-r-- 1 jacklin jacklin   2884802 10月 27 17:42 N22E114.hgt
+-rw-rw-r-- 1 jacklin jacklin   2884802 10月 27 17:42 N22E115.hgt
+-rw-rw-r-- 1 jacklin jacklin   2884802 10月 27 17:42 N22E116.hgt
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;验证&quot;&gt;验证&lt;/h4&gt;
+
+&lt;p&gt;上述文件lon114.00_117.00lat22.00_23.00_local-source.osm即转换完成的osm文件，需要使用FYIII的地图导入工具-Import，和详图一起导入，才能在FYIII中加载，导入教程的中文版下次再出&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 27 Oct 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/10/%E6%80%8E%E4%B9%88%E8%BD%AC%E6%8D%A2SRTM-hgt%E6%95%B0%E6%8D%AE%E5%88%B0OSM/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/10/%E6%80%8E%E4%B9%88%E8%BD%AC%E6%8D%A2SRTM-hgt%E6%95%B0%E6%8D%AE%E5%88%B0OSM/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>How to run osmscout2 base on libosmscout</title>
+        <description>&lt;h1 id=&quot;libosmscout-osmscout2-demo-test&quot;&gt;libosmscout-OSMSCout2 demo test&lt;/h1&gt;
+
+&lt;p&gt;first, pull down from libosmscout&lt;/p&gt;
+
+&lt;p&gt;###check environment variable&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;export QTDIR=/opt/Qt5.9.3/5.9.3/gcc_64
+export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+export QT_QPA_PLATFORM_PLUGIN_PATH=$QTDIR/plugins
+export PATH=$PATH:$QTDIR/bin
+export PATH=$PATH:/home/toolchain/arm-2014.09/bin
+export PATH=$PATH:/opt/qt5.9.3-arm-confirm-license/bin
+alias qtcreator=/opt/Qt5.9.3/Tools/QtCreator/bin/qtcreator
+export CMAKE_PREFIX_PATH=$QTDIR:$CMAKE_PREFIX_PATH
+export CMAKE_PREFIX_PATH=$QTDIR/lib/cmake/Qt5Widgets:$CMAKE_PREFIX_PATH
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;installed third-part libs to support Import and OSMScout2 demo.&lt;/p&gt;
+
+&lt;p&gt;e.g.&lt;/p&gt;
+
+&lt;p&gt;libxml2, libglfw3, libprotobuf, libmarisa, and so on. You can get explicit list when run cmake&lt;/p&gt;
+
+&lt;h3 id=&quot;build&quot;&gt;build&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir ./libosmscout/build
+cmake ..
+make -j8
+sudo make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;libosmscout should be installed to /usr/local/&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;###run&lt;/p&gt;
+
+&lt;p&gt;open ./libosmscout/OSMScout2/*.pro or CMakeLists.txt in QtCreator&lt;/p&gt;
+
+&lt;p&gt;####case .pro&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;suggest to comment line of PKGCONFIG, instead of INCLUDE and LIBS. i will try to use PKGCONFIG later.&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;greaterThan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;QT_MAJOR_VERSION&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;QT&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;widgets&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;INCLUDEPATH&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;include&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;LIBS&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;usr&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;local&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lib&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;losmscout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;losmscout_map&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;losmscout_map_qt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;losmscout_client_qt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lxml2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lmarisa&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;losmscout_gpx&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;losmscout_import&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#PKGCONFIG += libosmscout-map-qt libosmscout-client-qt
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;then you should be OK with compile and run&lt;/p&gt;
+
+&lt;p&gt;####case CMakeLists.txt&lt;/p&gt;
+
+&lt;p&gt;check CMAKE_PREFIX_PATH,&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;find_library(Qml Qwidgets Quick and so on)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+</description>
+        <pubDate>Fri, 26 Oct 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/10/how-to-run-OSMSCout2-base-on-libosmscout/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/10/how-to-run-OSMSCout2-base-on-libosmscout/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>How to import contour line to libosmscout</title>
+        <description>&lt;h1 id=&quot;how-to-import-contour-line-to-libosmscout&quot;&gt;how to import contour line to libosmscout&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://libosmscout.sourceforge.net/tutorials/importing/&quot;&gt;referencePage&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;flag:&lt;a href=&quot;https://github.com/Framstag/libosmscout/issues/647&quot;&gt;elevationContour&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;when we get .osm file from hgt, then we can import osm with *.osm.pbf to libosmscout.&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Import&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;typefile&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;stylesheets&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;map&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ost&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;destinationDirectory&lt;/span&gt; &lt;span class=&quot;err&quot;&gt;\&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maps&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;demChina1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maps&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;china&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;latest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;osm&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pbf&lt;/span&gt; \
+&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;maps&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lon114&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_117&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00l&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;at22&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_23&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;mo&quot;&gt;00&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;_local&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;source&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;osm&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;ubuntu16.04 Import后的database不能在项目中加载地图，需要在mac上测试&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;after Import contour line database with detail map, must open elevationContour in standard.ost to render contour line.&lt;/p&gt;
+</description>
+        <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/10/how-to-import-contour-line-to-libosmscout/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/10/how-to-import-contour-line-to-libosmscout/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>How to convert hgt to osm</title>
+        <description>&lt;p&gt;#how to convert hgt from SRTM to osm&lt;/p&gt;
+
+&lt;p&gt;tools used:&lt;a href=&quot;https://wiki.openstreetmap.org/wiki/Phyghtmap&quot;&gt;phyghtmap&lt;/a&gt; &lt;a href=&quot;http://katze.tfiu.de/projects/phyghtmap/&quot;&gt;homePage&lt;/a&gt;  &lt;a href=&quot;https://www.mankier.com/1/phyghtmap&quot;&gt;manPage&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;###environment reference：ubuntu16.04+python3.5&lt;/p&gt;
+
+&lt;h2 id=&quot;download&quot;&gt;Download&lt;/h2&gt;
+
+&lt;p&gt;At the moment, you have the choice between two different distribution types:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Source distibution: &lt;a href=&quot;http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20.orig.tar.gz&quot;&gt;phyghtmap_2.20.orig.tar.gz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Debian package: &lt;a href=&quot;http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20-1_all.deb&quot;&gt;phyghtmap_2.20-1_all.deb&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Debian .debian.tar.xz: &lt;a href=&quot;http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20-1.debian.tar.xz&quot;&gt;phyghtmap_2.20-1.debian.tar.xz&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Debian .dsc: &lt;a href=&quot;http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20-1.dsc&quot;&gt;phyghtmap_2.20-1.dsc&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;dependencies&quot;&gt;Dependencies&lt;/h2&gt;
+
+&lt;p&gt;I tested the installation process under Windows. If you want to install phyghtmap on a Windows machine, go down to the &lt;a href=&quot;http://katze.tfiu.de/projects/phyghtmap/#WindowsInstallation&quot;&gt;Windows installation section&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The installation process requires python3 and a working python3 setuptools installation.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;python3-setuptools, if you want to install from the source distribution (on Debian-like systems, say &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install python3-setuptools&lt;/code&gt;, but I guess you want to use the Debian package instead. For other operating systems, have a look &lt;a href=&quot;http://pypi.python.org/pypi/setuptools/&quot;&gt;here&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The program itself should run with python &amp;gt;= 3.0 (Windows users, take a look &lt;a href=&quot;http://www.python.org/download/&quot;&gt;here&lt;/a&gt;). Some additional dependencies have to be installed on your system in order to run phyghtmap:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;python3-matplotlib (on Debian-like systems, say &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install python3-matplotlib&lt;/code&gt;; Windows users, have a look &lt;a href=&quot;http://sourceforge.net/projects/matplotlib/files/&quot;&gt;here&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;python3-bs4 (on Debian-like systems, say &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install python3-bs4&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;python3-numpy (on Debian-like systems, say &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install python3-numpy&lt;/code&gt;; Windows users, have a look &lt;a href=&quot;http://sourceforge.net/projects/numpy/files/&quot;&gt;here&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;python3-gdal (since version 1.70; if you don’t want to use GeoTiff input files, you may be happy withput python-gdal; on Debian-like systems, say &lt;code class=&quot;highlighter-rouge&quot;&gt;apt-get install python3-gdal&lt;/code&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Installation&lt;/p&gt;
+
+&lt;h3 id=&quot;source-distribution&quot;&gt;Source Distribution&lt;/h3&gt;
+
+&lt;p&gt;If you are not running a Debian-like system, you will want to have the source distribution. This is especially true, if you want to use phyghtmap on a Windows machine. If so, go down to the seperate &lt;a href=&quot;http://katze.tfiu.de/projects/phyghtmap/#WindowsInstallation&quot;&gt;Windows installation section&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To install phyghtmap, unpack the source file, chdir to the unpacked source directory and then say&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;sudo python3 setup.py install&lt;/code&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;which will install the stuff on your system.&lt;/p&gt;
+
+&lt;p&gt;If you are not a Windows user and have no &lt;code class=&quot;highlighter-rouge&quot;&gt;sudo&lt;/code&gt; installed, I guess you know what to do.&lt;/p&gt;
+
+&lt;p&gt;If you don’t have the permissions to globally install phyghtmap but want to use it anyway, you may want to set up a virtual python environment and install phyghtmap there. If so, take a look &lt;a href=&quot;http://svn.python.org/projects/sandbox/branches/setuptools-0.6/virtual-python.py&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;usages:&lt;/p&gt;
+
+&lt;p&gt;i.e. convert a folder of hgt files to one osm file&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;phyghtmap&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;s&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;5&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;node&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;NODE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;way&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;WAY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ID&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nodes&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;per&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tile&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;your&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;hgt&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;start-node-id = $((1 « 33))&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;start-way-id = $((1 « 33))&lt;/em&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 23 Oct 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/10/how-to-convert-hgt-to-osm/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/10/how-to-convert-hgt-to-osm/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>使用zonedetect获取当前位置的时区</title>
+        <description>&lt;h1 id=&quot;使用zonedetect获取当前位置的时区&quot;&gt;使用zoneDetect获取当前位置的时区&lt;/h1&gt;
+
+&lt;p&gt;获取时区的方案分为在线版和离线版，在嵌入式设备上一般使用离线版本。参考信息如下：&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Time Zone Location Web Services&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://developers.google.com/maps/documentation/timezone/&quot;&gt;Google Maps Time Zone API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://docs.microsoft.com/en-us/rest/api/maps/timezone&quot;&gt;Microsoft Azure Maps Time Zone API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.geonames.org/export/web-services.html#timezone&quot;&gt;GeoNames Time Zone API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://timezonedb.com/api&quot;&gt;TimeZoneDB API&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://askgeo.com/&quot;&gt;AskGeo&lt;/a&gt; - commercial (but &lt;a href=&quot;https://stackoverflow.com/a/5519523/634824&quot;&gt;arguably more accurate than GeoNames&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.geogarage.com/blog/news-1/post/geogarage-time-zone-api-31&quot;&gt;GeoGarage Time Zone API&lt;/a&gt; - commercial, focusing on Nautical time zones.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Raw Time Zone Boundary Data&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/evansiroky/timezone-boundary-builder&quot;&gt;Timezone Boundary Builder&lt;/a&gt; - builds time zone shapefiles from OpenStreetMaps map data. Includes territorial waters near coastlines.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The following projects have previously been sources of time zone boundary data, but are no longer actively maintained.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://efele.net/maps/tz/world/&quot;&gt;tz_world&lt;/a&gt; - the original shapefile data from Eric Muller&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/straup/whereonearth-timezone&quot;&gt;whereonearth-timezone&lt;/a&gt; - GeoJSON version with WOEDB data merged in&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Time Zone Geolocation Offline Implementations&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Implementations that use the Timezone Boundary Builder data&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/evansiroky/node-geo-tz&quot;&gt;node-geo-tz&lt;/a&gt; - JavaScript library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/darkskyapp/tz-lookup/&quot;&gt;tz-lookup&lt;/a&gt; - JavaScript library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/mj1856/GeoTimeZone&quot;&gt;GeoTimeZone&lt;/a&gt; - .NET library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/MrMinimal64/timezonefinder&quot;&gt;timezonefinder&lt;/a&gt; - Python library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/BertoldVdb/ZoneDetect&quot;&gt;ZoneDetect&lt;/a&gt; - C library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/RomanIakovlev/timeshape&quot;&gt;Timeshape&lt;/a&gt; - Java library&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Implementations that use the older tz_world data&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/bradfitz/latlong&quot;&gt;latlong&lt;/a&gt; - Go library (Read &lt;a href=&quot;https://plus.google.com/u/0/+BradFitzpatrick/posts/XVyy1bAzkZd&quot;&gt;this post&lt;/a&gt; also.)&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://sites.google.com/a/edval.biz/www/mapping-lat-lng-s-to-timezones&quot;&gt;TimeZoneMapper&lt;/a&gt; - Java library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/mattbornski/tzwhere&quot;&gt;tzwhere&lt;/a&gt; - JavaScript/Node library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/pegler/pytzwhere&quot;&gt;pytzwhere&lt;/a&gt; - Python library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/gunyarakun/timezone_finder&quot;&gt;timezone_finder&lt;/a&gt; - Ruby library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/drtimcooper/LatLongToTimezone&quot;&gt;LatLongToTimeZone&lt;/a&gt; - Java and Swift libraries&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://derickrethans.nl/what-time-is-it.html&quot;&gt;What Time is it here?&lt;/a&gt; - Blog post describing PHP and MongoDB&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Libraries that call one of the web services&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://rubygems.org/gems/timezone&quot;&gt;timezone&lt;/a&gt; - Ruby gem that calls GeoNames&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://askgeo.com/#libraries&quot;&gt;AskGeo&lt;/a&gt; has its own libraries for calling from Java or .Net&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.geonames.org/export/client-libraries.html&quot;&gt;GeoNames&lt;/a&gt; has client libraries for just about everything&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Other Ideas&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Find the nearest city &lt;a href=&quot;https://stackoverflow.com/a/5584826/634824&quot;&gt;with an R-Tree&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Find the nearest city &lt;a href=&quot;https://stackoverflow.com/a/13849653/634824&quot;&gt;with MySQL&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;em&gt;Please update this list if you know of any others&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Also, note that the nearest-city approach may not yield the “correct” result, just an approximation.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Conversion To Windows Zones&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Most of the methods listed will return an IANA time zone id. If you need to convert to a Windows time zone for use with the &lt;code class=&quot;highlighter-rouge&quot;&gt;TimeZoneInfo&lt;/code&gt; class in .NET, use the &lt;a href=&quot;https://github.com/mj1856/TimeZoneConverter&quot;&gt;TimeZoneConverter&lt;/a&gt; library.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Don’t use zone.tab&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The &lt;a href=&quot;https://en.wikipedia.org/wiki/Tz_database&quot;&gt;tz database&lt;/a&gt; includes a file called &lt;a href=&quot;https://en.wikipedia.org/wiki/Zone.tab&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;zone.tab&lt;/code&gt;&lt;/a&gt;. This file is primarily used to present a list of time zones for a user to pick from. It includes the latitude and longitude coordinates for the point of reference for each time zone. This allows a map to be created highlighting these points. For example, see the interactive map shown on &lt;a href=&quot;https://momentjs.com/timezone/&quot;&gt;the moment-timezone home page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;While it may be tempting to use this data to resolve the time zone from a latitude and longitude coordinates, consider that these are points - not boundaries. The best one could do would be to determine the &lt;em&gt;closest&lt;/em&gt; point, which in many cases will not be the correct point.&lt;/p&gt;
+
+&lt;p&gt;Consider the following example:&lt;/p&gt;
+
+&lt;p&gt;​                            &lt;img src=&quot;https://i.stack.imgur.com/tjd5u.png&quot; alt=&quot;Time Zone Example Art&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The two squares represent different time zones, where the black dot in each square is the reference location, such as what can be found in zone.tab. The blue dot represents the location we are attempting to find a time zone for. Clearly, this location is within the orange zone on the left, but if we just look at closest distance to the reference point, it will resolve to the greenish zone on the right.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/a/16086964&quot;&gt;share&lt;/a&gt;&lt;a href=&quot;https://stackoverflow.com/posts/16086964/edit&quot;&gt;improve this answer&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/posts/16086964/revisions&quot;&gt;edited May 11 at 3:58&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;通过查阅上述的开源库，js版，python版和c版都已经测试成功，java和.net由于开发环境限制暂时不考虑测试。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;js版测试步骤&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;只需要npm install [库名称]，然后编写.js文件，使用node [.js文件]即可运行并检查结果。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;C版-ZoneDetect-测试步骤&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;需要先编译出library中的动态库&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;make&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;生成libzoneDetect.so, 然后编译demo.，&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;gcc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;demo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dmeo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lzoneDetect&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后执行测试&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;demo&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;..&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;library&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;/*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;bin&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lat&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;lon&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;em&gt;c版-ZoneDetect-交叉编译测试&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;使用arm-linux-gnueabihf-gcc交叉编译工具链编译&lt;/p&gt;
+
+&lt;p&gt;make之前，修改Makefile中的CC&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;CC&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;arm&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;linux&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gnueabihf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;gcc&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;然后make生成so库&lt;/p&gt;
+
+&lt;p&gt;编译测试文件时，注意需要带上-lm(math库)&lt;/p&gt;
+
+&lt;div class=&quot;language-c highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;gcc&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;o&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;demo&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;demo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;L&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lzoneDetect&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;lm&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;在设备上可以执行demo,还需要添加时区名-&amp;gt;utc差值的接口，可参考python版本的实现思路&lt;/p&gt;
+</description>
+        <pubDate>Thu, 18 Oct 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/10/%E4%BD%BF%E7%94%A8zoneDetect%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%BD%8D%E7%BD%AE%E7%9A%84%E6%97%B6%E5%8C%BA/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/10/%E4%BD%BF%E7%94%A8zoneDetect%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E4%BD%8D%E7%BD%AE%E7%9A%84%E6%97%B6%E5%8C%BA/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Raspberrypi使用ssh中文显示和编辑的问题</title>
+        <description>&lt;p&gt;环境&lt;/p&gt;
+
+&lt;p&gt;1.raspberryPi 3B+, python2.7 + python3.6&lt;/p&gt;
+
+&lt;p&gt;2.mac OSX 10.13.3 ssh(osx terminal), Termius&lt;/p&gt;
+
+&lt;p&gt;使用OSX自带的ssh连接树莓派的时候，ssh中不能输入和输出中文，使用vnc打开terminal也一样&lt;/p&gt;
+
+&lt;p&gt;相关error:&lt;/p&gt;
+
+&lt;p&gt;SyntaxError: Non-ASCII character ‘\xe4’ in file test1.py on line 2, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details&lt;/p&gt;
+
+&lt;p&gt;UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xe4 in position 0: ordinal not in range(128)&lt;/p&gt;
+
+&lt;p&gt;###解决方案&lt;/p&gt;
+
+&lt;p&gt;####配置树莓派端&lt;/p&gt;
+
+&lt;p&gt;1.进入系统的语言配置界面&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo raspi-config
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2.选择语言&lt;/p&gt;
+
+&lt;!--空格操作勾选/取消勾选，tab 跳转到[确定，取消]选择区域 --&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;选择 Localisation Options&lt;/li&gt;
+  &lt;li&gt;选择 Change Locale&lt;/li&gt;
+  &lt;li&gt;取消勾选 en_GB.UTF-8 UTF-8，勾选 en_US.UTF-8, zh_CN.UTF-8 UTF-8, zh_CN.GBK GBK&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;3.安装中文字库&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install ttf-wqy-zenhei
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;4.检查raspberryPi 的locale&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;locale
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;参考我的locale信息&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;pi@raspberrypi:~ $ locale
+LANG=zh_CN.UTF-8
+LANGUAGE=zh_CN.UTF-8
+LC_CTYPE=&quot;zh_CN.UTF-8&quot;
+LC_NUMERIC=&quot;zh_CN.UTF-8&quot;
+LC_TIME=&quot;zh_CN.UTF-8&quot;
+LC_COLLATE=&quot;zh_CN.UTF-8&quot;
+LC_MONETARY=&quot;zh_CN.UTF-8&quot;
+LC_MESSAGES=&quot;zh_CN.UTF-8&quot;
+LC_PAPER=&quot;zh_CN.UTF-8&quot;
+LC_NAME=&quot;zh_CN.UTF-8&quot;
+LC_ADDRESS=&quot;zh_CN.UTF-8&quot;
+LC_TELEPHONE=&quot;zh_CN.UTF-8&quot;
+LC_MEASUREMENT=&quot;zh_CN.UTF-8&quot;
+LC_IDENTIFICATION=&quot;zh_CN.UTF-8&quot;
+LC_ALL=zh_CN.UTF-8
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;###配置OSX端&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ locale
+LANG=&quot;en_US.UTF-8&quot;
+LC_COLLATE=&quot;en_US.UTF-8&quot;
+LC_CTYPE=&quot;en_US.UTF-8&quot;
+LC_MESSAGES=&quot;en_US.UTF-8&quot;
+LC_MONETARY=&quot;en_US.UTF-8&quot;
+LC_NUMERIC=&quot;en_US.UTF-8&quot;
+LC_TIME=&quot;en_US.UTF-8&quot;
+LC_ALL=&quot;en_US.UTF-8&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;确保每一项都有值，如果有缺少，需要在~/.bash_profile 中添加&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 23 Jun 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/06/raspberryPi%E4%BD%BF%E7%94%A8ssh%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%92%8C%E7%BC%96%E8%BE%91%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/06/raspberryPi%E4%BD%BF%E7%94%A8ssh%E4%B8%AD%E6%96%87%E6%98%BE%E7%A4%BA%E5%92%8C%E7%BC%96%E8%BE%91%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Libosmscout地图引擎的进展</title>
+        <description>&lt;h1 id=&quot;libosmscout地图引擎验证过程&quot;&gt;libosmscout地图引擎验证过程&lt;/h1&gt;
+
+&lt;p&gt;libosmscout是非常强大的跨平台、离线矢量地图引擎渲染库，支持OpenStreetMap的原生地图格式，.osm或.osm.pbf，具有路径规划，并且支持多种交通工具的规划。&lt;/p&gt;
+
+&lt;h2 id=&quot;1开发环境验证&quot;&gt;1.开发环境验证&lt;/h2&gt;
+
+&lt;p&gt;无论在osx还是ubuntu上验证，都需要参考官网给的building dependence, 注意使用CMAKE最新版，V3.11，环境安装完之后，在osx/ubuntu均可以完整编译。&lt;/p&gt;
+
+&lt;p&gt;​	1.OSX 10.13.3 , build OK,install OK&lt;/p&gt;
+
+&lt;p&gt;​	2.Ubuntu 16.04, build OK&lt;/p&gt;
+
+&lt;h2 id=&quot;2demo验证&quot;&gt;2.demo验证&lt;/h2&gt;
+
+&lt;p&gt;​	1.OSMScout2&lt;/p&gt;
+
+&lt;p&gt;​	启动demo时需要输入 map-dictionary, style-sheet, translator file..etc,实际在osx测试时，出现	Can’t load translator for locale QLocale,然后打开在线地图，然而并没有正常显示，可能是网络地址问题。&lt;/p&gt;
+
+&lt;p&gt;​	已经把这个问题发到libosmscout的issue上，等待回复。&lt;/p&gt;
+
+&lt;p&gt;​	1.其它没有窗口显示的工具都可以正常运行。&lt;/p&gt;
+
+&lt;p&gt;####已经得到回复&lt;/p&gt;
+
+&lt;p&gt;原因是缺少marisa库，在Import地图文件时没有生成text索引文件，所以未加载地图&lt;/p&gt;
+
+&lt;p&gt;在github上clone了marisa之后，编译，安装，即可顺利运行OSMScout2 Demo.&lt;/p&gt;
+
+&lt;p&gt;Great!&lt;/p&gt;
+</description>
+        <pubDate>Fri, 13 Apr 2018 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/2018/04/libosmscout%E5%9C%B0%E5%9B%BE%E5%BC%95%E6%93%8E%E7%9A%84%E8%BF%9B%E5%B1%95/</link>
+        <guid isPermaLink="true">http://localhost:4000/2018/04/libosmscout%E5%9C%B0%E5%9B%BE%E5%BC%95%E6%93%8E%E7%9A%84%E8%BF%9B%E5%B1%95/</guid>
         
         
       </item>

@@ -1,0 +1,61 @@
+<h1 id="libosmscout-osmscout2-demo-test">libosmscout-OSMSCout2 demo test</h1>
+
+<p>first, pull down from libosmscout</p>
+
+<p>###check environment variable</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>export QTDIR=/opt/Qt5.9.3/5.9.3/gcc_64
+export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH
+export QT_QPA_PLATFORM_PLUGIN_PATH=$QTDIR/plugins
+export PATH=$PATH:$QTDIR/bin
+export PATH=$PATH:/home/toolchain/arm-2014.09/bin
+export PATH=$PATH:/opt/qt5.9.3-arm-confirm-license/bin
+alias qtcreator=/opt/Qt5.9.3/Tools/QtCreator/bin/qtcreator
+export CMAKE_PREFIX_PATH=$QTDIR:$CMAKE_PREFIX_PATH
+export CMAKE_PREFIX_PATH=$QTDIR/lib/cmake/Qt5Widgets:$CMAKE_PREFIX_PATH
+</code></pre>
+</div>
+
+<p>installed third-part libs to support Import and OSMScout2 demo.</p>
+
+<p>e.g.</p>
+
+<p>libxml2, libglfw3, libprotobuf, libmarisa, and so on. You can get explicit list when run cmake</p>
+
+<h3 id="build">build</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mkdir ./libosmscout/build
+cmake ..
+make -j8
+sudo make install
+</code></pre>
+</div>
+
+<p><em>libosmscout should be installed to /usr/local/</em></p>
+
+<p>###run</p>
+
+<p>open ./libosmscout/OSMScout2/*.pro or CMakeLists.txt in QtCreator</p>
+
+<p>####case .pro</p>
+
+<p><em>suggest to comment line of PKGCONFIG, instead of INCLUDE and LIBS. i will try to use PKGCONFIG later.</em></p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">greaterThan</span><span class="p">(</span><span class="n">QT_MAJOR_VERSION</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span><span class="o">:</span> <span class="n">QT</span> <span class="o">+=</span> <span class="n">widgets</span>
+<span class="n">INCLUDEPATH</span> <span class="o">+=</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">include</span>
+
+<span class="n">LIBS</span> <span class="o">+=</span> <span class="o">-</span><span class="n">L</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="n">lib</span> <span class="o">-</span><span class="n">losmscout</span> <span class="o">-</span><span class="n">losmscout_map</span> <span class="o">-</span><span class="n">losmscout_map_qt</span> <span class="o">-</span><span class="n">losmscout_client_qt</span> <span class="o">-</span><span class="n">lxml2</span> <span class="o">-</span><span class="n">lmarisa</span> <span class="o">-</span><span class="n">losmscout_gpx</span> <span class="o">-</span><span class="n">losmscout_import</span>
+<span class="cp">#PKGCONFIG += libosmscout-map-qt libosmscout-client-qt
+</span></code></pre>
+</div>
+
+<p>then you should be OK with compile and run</p>
+
+<p>####case CMakeLists.txt</p>
+
+<p>check CMAKE_PREFIX_PATH,</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>find_library(Qml Qwidgets Quick and so on)
+</code></pre>
+</div>
+

@@ -1,0 +1,34 @@
+<h1 id="ubuntu1604搭建samba">ubuntu16.04搭建samba</h1>
+
+<h2 id="0-install-samba">0 install samba</h2>
+
+<p><code class="highlighter-rouge">sudo apt-get install samba samba-common-bin</code></p>
+
+<h2 id="1-add-user">1 add user</h2>
+
+<p><code class="highlighter-rouge">sudo smbpasswd -a user-name</code></p>
+
+<h2 id="2-edit-smbconf">2 edit smb.conf</h2>
+
+<p>[home]</p>
+
+<p>​	comment = Home Directories</p>
+
+<p>​	browseale = yes</p>
+
+<p>​	read only = no</p>
+
+<p>​	create mask = 0755</p>
+
+<p>​	directory mask = 0755</p>
+
+<h2 id="3-启动samba">3 启动samba</h2>
+
+<p><code class="highlighter-rouge">sudo smbd</code></p>
+
+<p><code class="highlighter-rouge">sudo nmbd</code></p>
+
+<h2 id="4-window-访问-ubuntu">4 window 访问 ubuntu</h2>
+
+<p>\\ip</p>
+

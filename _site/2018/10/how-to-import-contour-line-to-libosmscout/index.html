@@ -1,0 +1,16 @@
+<h1 id="how-to-import-contour-line-to-libosmscout">how to import contour line to libosmscout</h1>
+
+<p><a href="http://libosmscout.sourceforge.net/tutorials/importing/">referencePage</a></p>
+
+<p>flag:<a href="https://github.com/Framstag/libosmscout/issues/647">elevationContour</a></p>
+
+<p>when we get .osm file from hgt, then we can import osm with *.osm.pbf to libosmscout.</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="p">.</span><span class="o">/</span><span class="n">Import</span> <span class="o">--</span><span class="n">typefile</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">stylesheets</span><span class="o">/</span><span class="n">map</span><span class="p">.</span><span class="n">ost</span> <span class="o">--</span><span class="n">destinationDirectory</span> <span class="err">\</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">maps</span><span class="o">/</span><span class="n">demChina1</span><span class="o">/</span> <span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">maps</span><span class="o">/</span><span class="n">china</span><span class="o">-</span><span class="n">latest</span><span class="p">.</span><span class="n">osm</span><span class="p">.</span><span class="n">pbf</span> \
+<span class="p">..</span><span class="o">/</span><span class="p">..</span><span class="o">/</span><span class="n">maps</span><span class="o">/</span><span class="n">lon114</span><span class="p">.</span><span class="mo">00</span><span class="n">_117</span><span class="p">.</span><span class="mo">00l</span><span class="n">at22</span><span class="p">.</span><span class="mo">00</span><span class="n">_23</span><span class="p">.</span><span class="mo">00</span><span class="n">_local</span><span class="o">-</span><span class="n">source</span><span class="p">.</span><span class="n">osm</span>
+</code></pre>
+</div>
+
+<p><em>ubuntu16.04 Import后的database不能在项目中加载地图，需要在mac上测试</em></p>
+
+<p>after Import contour line database with detail map, must open elevationContour in standard.ost to render contour line.</p>

@@ -1,0 +1,66 @@
+<p>#how to convert hgt from SRTM to osm</p>
+
+<p>tools used:<a href="https://wiki.openstreetmap.org/wiki/Phyghtmap">phyghtmap</a> <a href="http://katze.tfiu.de/projects/phyghtmap/">homePage</a>  <a href="https://www.mankier.com/1/phyghtmap">manPage</a></p>
+
+<p>###environment reference：ubuntu16.04+python3.5</p>
+
+<h2 id="download">Download</h2>
+
+<p>At the moment, you have the choice between two different distribution types:</p>
+
+<ul>
+  <li>Source distibution: <a href="http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20.orig.tar.gz">phyghtmap_2.20.orig.tar.gz</a></li>
+  <li>Debian package: <a href="http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20-1_all.deb">phyghtmap_2.20-1_all.deb</a></li>
+  <li>Debian .debian.tar.xz: <a href="http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20-1.debian.tar.xz">phyghtmap_2.20-1.debian.tar.xz</a></li>
+  <li>Debian .dsc: <a href="http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20-1.dsc">phyghtmap_2.20-1.dsc</a></li>
+</ul>
+
+<h2 id="dependencies">Dependencies</h2>
+
+<p>I tested the installation process under Windows. If you want to install phyghtmap on a Windows machine, go down to the <a href="http://katze.tfiu.de/projects/phyghtmap/#WindowsInstallation">Windows installation section</a>.</p>
+
+<p>The installation process requires python3 and a working python3 setuptools installation.</p>
+
+<ul>
+  <li>python3-setuptools, if you want to install from the source distribution (on Debian-like systems, say <code class="highlighter-rouge">apt-get install python3-setuptools</code>, but I guess you want to use the Debian package instead. For other operating systems, have a look <a href="http://pypi.python.org/pypi/setuptools/">here</a>)</li>
+</ul>
+
+<p>The program itself should run with python &gt;= 3.0 (Windows users, take a look <a href="http://www.python.org/download/">here</a>). Some additional dependencies have to be installed on your system in order to run phyghtmap:</p>
+
+<ul>
+  <li>python3-matplotlib (on Debian-like systems, say <code class="highlighter-rouge">apt-get install python3-matplotlib</code>; Windows users, have a look <a href="http://sourceforge.net/projects/matplotlib/files/">here</a>)</li>
+  <li>python3-bs4 (on Debian-like systems, say <code class="highlighter-rouge">apt-get install python3-bs4</code></li>
+  <li>python3-numpy (on Debian-like systems, say <code class="highlighter-rouge">apt-get install python3-numpy</code>; Windows users, have a look <a href="http://sourceforge.net/projects/numpy/files/">here</a>)</li>
+  <li>python3-gdal (since version 1.70; if you don’t want to use GeoTiff input files, you may be happy withput python-gdal; on Debian-like systems, say <code class="highlighter-rouge">apt-get install python3-gdal</code>).</li>
+</ul>
+
+<p>Installation</p>
+
+<h3 id="source-distribution">Source Distribution</h3>
+
+<p>If you are not running a Debian-like system, you will want to have the source distribution. This is especially true, if you want to use phyghtmap on a Windows machine. If so, go down to the seperate <a href="http://katze.tfiu.de/projects/phyghtmap/#WindowsInstallation">Windows installation section</a>.</p>
+
+<p>To install phyghtmap, unpack the source file, chdir to the unpacked source directory and then say</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">sudo python3 setup.py install</code></p>
+</blockquote>
+
+<p>which will install the stuff on your system.</p>
+
+<p>If you are not a Windows user and have no <code class="highlighter-rouge">sudo</code> installed, I guess you know what to do.</p>
+
+<p>If you don’t have the permissions to globally install phyghtmap but want to use it anyway, you may want to set up a virtual python environment and install phyghtmap there. If so, take a look <a href="http://svn.python.org/projects/sandbox/branches/setuptools-0.6/virtual-python.py">here</a>.</p>
+
+<p>usages:</p>
+
+<p>i.e. convert a folder of hgt files to one osm file</p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">phyghtmap</span> <span class="o">-</span><span class="n">s</span> <span class="mi">5</span> <span class="o">--</span><span class="n">start</span><span class="o">-</span><span class="n">node</span><span class="o">-</span><span class="n">id</span><span class="o">=</span><span class="n">NODE</span><span class="o">-</span><span class="n">ID</span> <span class="o">--</span><span class="n">start</span><span class="o">-</span><span class="n">way</span><span class="o">-</span><span class="n">id</span><span class="o">=</span><span class="n">WAY</span><span class="o">-</span><span class="n">ID</span> <span class="o">--</span><span class="n">max</span><span class="o">-</span><span class="n">nodes</span><span class="o">-</span><span class="n">per</span><span class="o">-</span><span class="n">tile</span><span class="o">=</span><span class="mi">0</span> <span class="o">&lt;</span><span class="n">your</span> <span class="n">hgt</span> <span class="n">files</span><span class="o">&gt;</span>
+</code></pre>
+</div>
+
+<p><em>start-node-id = $((1 « 33))</em></p>
+
+<p><em>start-way-id = $((1 « 33))</em></p>
+

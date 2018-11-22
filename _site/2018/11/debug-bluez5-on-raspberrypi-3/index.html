@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <title>debug bluez5 on raspberrypi 3</title>
+  <meta name="description" content="pi@scmbot:~ $ sudo bluetoothctl[NEW] Controller 00:1B:DC:0F:5A:0C scmbot [default][bluetooth]# power onChanging power on succeeded[bluetooth]# agent onAgent ...">
+  <meta name="author" content="Wei Wang">
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="debug bluez5 on raspberrypi 3">
+  <meta name="twitter:description" content="pi@scmbot:~ $ sudo bluetoothctl[NEW] Controller 00:1B:DC:0F:5A:0C scmbot [default][bluetooth]# power onChanging power on succeeded[bluetooth]# agent onAgent ...">
+  
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="debug bluez5 on raspberrypi 3">
+  <meta property="og:description" content="pi@scmbot:~ $ sudo bluetoothctl[NEW] Controller 00:1B:DC:0F:5A:0C scmbot [default][bluetooth]# power onChanging power on succeeded[bluetooth]# agent onAgent ...">
+  
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+  <link href="/assets/images/favicon.png" rel="shortcut icon" type="image/png">
+  
+  <link rel="stylesheet" href="/css/main.css">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+  <link rel="canonical" href="http://localhost:4000/2018/11/debug-bluez5-on-raspberrypi-3/">
+  <link rel="alternate" type="application/rss+xml" title="jacky" href="http://localhost:4000/feed.xml">
+  
+  <meta name="google-site-verification" content="1-1ZlHoRvM0T2FqPbW2S-qLgYXN6rsn52kErlMPd_gw" />
+  
+</head>
+
+
+  <body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+    
+    <header class="panel-cover panel-cover--collapsed" style="background-image: url('/assets/images/background-cover.jpg')">
+  <div class="panel-main">
+
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/#blog" title="前往 jacky 的主页" class="blog-button"><img src="/assets/images/avatar.jpg" width="80" alt="jacky logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/#blog" title="link to homepage for jacky" class="blog-button">jacky</a></h1>
+        
+        <span class="panel-cover__subtitle panel-subtitle">A technique blog for jacky</span>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">here are my artitles about work(embeded system develop, docker, etc.) and life(cook, hiking)</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+        
+        
+        
+        <div class="navigation-wrapper">
+          <div>
+            <nav class="cover-navigation cover-navigation--primary">
+              <ul class="navigation">
+                <li class="navigation__item"><a href="/#blog" title="Visit blog" class="blog-button">Blog</a></li>
+                
+                  <li class="navigation__item"><a href="https://github.com/jialinxie" target="_blank" title="My Projects">Projects</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          
+          <div><nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  
+
+  
+  <!-- Github -->
+  <li class="navigation__item">
+    <a href="https://github.com/https://github.com/jialinxie" title="@https://github.com/jialinxie 的 Github" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+  
+  
+  
+
+  
+
+  <!-- RSS -->
+  <li class="navigation__item">
+    <a href="/feed.xml" rel="author" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+  
+  <!-- Email -->
+  <li class="navigation__item">
+    <a href="mailto:lin990033@gmail.com" title="Contact me">
+      <i class='social fa fa-envelope'></i>
+      <span class="label">Email</span>
+    </a>
+  </li>
+  
+
+  </ul>
+</nav>
+</div>
+        </div>
+      </div>
+    </div>
+    
+    
+    <div class="panel-cover--overlay cover-red"></div>
+    
+  </div>
+</header>
+
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single" itemscope itemtype="http://schema.org/BlogPosting">
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2018-11-20 00:00:00 +0800" itemprop="datePublished" class="post-meta__date date">2018-11-20</time> &#8226; <span class="post-meta__tags tags">raspberry 3B</span>
+    </div>
+    <h1 class="post-title">debug bluez5 on raspberrypi 3</h1>
+  </header>
+
+  <section class="post">
+    <div class="highlighter-rouge"><pre class="highlight"><code>pi@scmbot:~ $ sudo bluetoothctl
+[NEW] Controller 00:1B:DC:0F:5A:0C scmbot [default]
+[bluetooth]# power on
+Changing power on succeeded
+[bluetooth]# agent on
+Agent registered
+[bluetooth]# pairable on
+Changing pairable on succeeded
+[bluetooth]# scan on
+Discovery started
+[CHG] Controller 00:1B:DC:0F:5A:0C Discovering: yes
+[NEW] Device DC:2C:26:41:B8:10 MEDION MD86853
+[bluetooth]# scan off
+[CHG] Device DC:2C:26:41:B8:10 RSSI is nil
+Discovery stopped
+[CHG] Controller 00:1B:DC:0F:5A:0C Discovering: no
+[bluetooth]# pair DC:2C:26:41:B8:10
+Attempting to pair with DC:2C:26:41:B8:10
+[CHG] Device DC:2C:26:41:B8:10 Connected: yes
+[agent] PIN code: XXXXXX
+[CHG] Device DC:2C:26:41:B8:10 Modalias: usb:v04E8p7021d011B
+[CHG] Device DC:2C:26:41:B8:10 UUIDs:
+00001000-0000-1000-8000-00805f9b34fb
+00001124-0000-1000-8000-00805f9b34fb
+00001200-0000-1000-8000-00805f9b34fb
+[CHG] Device DC:2C:26:41:B8:10 Paired: yes
+Pairing successful
+[CHG] Device DC:2C:26:41:B8:10 Connected: no
+[bluetooth]# trust DC:2C:26:41:B8:10
+[CHG] Device DC:2C:26:41:B8:10 Trusted: yes
+Changing DC:2C:26:41:B8:10 trust succeeded
+[bluetooth]# connect DC:2C:26:41:B8:10 
+Attempting to connect to DC:2C:26:41:B8:10
+[CHG] Device DC:2C:26:41:B8:10 Connected: yes
+Connection successful
+[CHG] Device DC:2C:26:41:B8:10 Connected: no
+[CHG] Device DC:2C:26:41:B8:10 Class: 0x000540
+[CHG] Device DC:2C:26:41:B8:10 Icon: input-keyboard
+[CHG] Device DC:2C:26:41:B8:10 Connected: yes
+[bluetooth]# quit
+Agent unregistered
+[DEL] Controller 00:1B:DC:0F:5A:0C scmbot [default]
+pi@scmbot:~ $
+</code></pre>
+</div>
+
+<p>Now here’s the trick. Bluez PNAT is not needed and breaks things, so edit main.conf:</p>
+
+<p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=521067#">Select all</a></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo nano /etc/bluetooth/main.conf
+</code></pre>
+</div>
+
+<p>and add this line towards the top:</p>
+
+<p>Code: <a href="https://www.raspberrypi.org/forums/viewtopic.php?p=521067#">Select all</a></p>
+
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="n">DisablePlugins</span> <span class="o">=</span> <span class="n">pnat</span>
+</code></pre>
+</div>
+
+<h3 id="receive-files-on-raspberry-pi-3-with-bluetooth"><a href="https://www.raspberrypi.org/forums/viewtopic.php?t=145530#p959280">Receive files on Raspberry Pi 3 with bluetooth</a></h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo nano /etc/systemd/system/dbus-org.bluez.service
+</code></pre>
+</div>
+
+<p>and add a ‘ -C’ flag at the end of the ExecStart= line. Reboot, and try to start obexpushd again. Try with sudo if that does not work.</p>
+
+<p>bluetoothctl代替了bluez-simple-agent</p>
+
+<p>bluetoothctl怎么配对？</p>
+
+<p>Bluez-utils has been removed in the Bluez 5 package</p>
+
+<p>Bluez-simple-agent is renamed, to simple-agent (I think) but bluetoothctl has been added for managing devices. It’s a sweet little CLI used for various tasks like pairing and trusting</p>
+
+<p>fix “Failed to pair: org.bluez.Error.AlreadyExists”</p>
+
+<p>##配对成功(iPhone 6s)</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>root@edison:~# rfkill unblock bluetooth   
+root@edison:~# bluetoothcutl   
+power on
+[bluetooth]# agent KeyboardDiasplay   
+[bluetooth]# default-agent
+[bluetooth]# scan on   
+[bluetooth]# scan off   
+[bluetooth]# pair &lt;device&gt;
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Failed to connect: org.bluez.Error.Failed
+</code></pre>
+</div>
+
+  </section>
+</article>
+
+<section class="read-more">
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">最近的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/11/test-bluez-5.x-on-arm-linux-with-kernel-4.1.x/" title="link to Test bluez 5.x on arm Linux with kernel 4.1.x">Test bluez 5.x on arm Linux with kernel 4.1.x</a></h2>
+       <p class="excerpt">test bluez 5.x on arm-linux platform from zsjsh /etc/enable_bt.shcd /usr/libexec/bluetooth/./bluetoothd -C  &amp;hciconfig hci0 uphciconfig hci0 piscan#不执行会报错 （Using X11 for dbus-daemon autolaunch was disabled at compile time, set your DBUS_SESSIO...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-11-20 00:00:00 +0800" class="post-list__meta--date date">2018-11-20</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/11/test-bluez-5.x-on-arm-linux-with-kernel-4.1.x/>继续阅读</a></div>
+   </div>
+   
+   
+   
+   
+   <div class="read-more-item">
+       <span class="read-more-item-dim">更早的文章</span>
+       <h2 class="post-list__post-title post-title"><a href="/2018/10/%E6%80%8E%E4%B9%88%E8%BD%AC%E6%8D%A2SRTM-hgt%E6%95%B0%E6%8D%AE%E5%88%B0OSM/" title="link to 怎么转换srtm hgt数据到osm">怎么转换srtm hgt数据到osm</a></h2>
+       <p class="excerpt">怎么转换SRTM hgt数据到OSM​																	-jacky推荐使用工具	phyghtmap 主页 使用手册参考环境Ubuntu16.04 python3.5第一步 搭建使用环境####搭建python3.5开发环境####验证首先验证当前python版本，验证方法如下：打开终端(control + alt + T),输入这是python2.7的版本，phyghtmap不依赖2.7的版本，只需要3.x的版本jacklin@ubuntu:~$ python --ver...&hellip;</p>
+       <div class="post-list__meta"><time datetime="2018-10-27 00:00:00 +0800" class="post-list__meta--date date">2018-10-27</time> &#8226; <span class="post-list__meta--tags tags"></span><a class="btn-border-small" href=/2018/10/%E6%80%8E%E4%B9%88%E8%BD%AC%E6%8D%A2SRTM-hgt%E6%95%B0%E6%8D%AE%E5%88%B0OSM/>继续阅读</a></div>
+   </div>
+   
+</section>
+
+<section class="post-comments">
+  
+    <div id="disqus_thread"></div>
+    <script>
+    
+    var disqus_config = function () {
+        this.page.url = "http://localhost:4000/2018/11/debug-bluez5-on-raspberrypi-3/";
+        this.page.identifier = "/2018/11/debug-bluez5-on-raspberrypi-3/";
+    };
+
+    var disqus_shortname = 'vno-jekyll';
+    
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document, s = d.createElement('script');
+        s.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>要查看<a href="http://disqus.com/?ref_noscript"> Disqus </a>评论，请启用 JavaScript</noscript>
+    
+  
+  
+  
+  
+</section>
+
+
+            <section class="footer">
+    <footer>
+    	<span class="footer__copyright">本站点采用<a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享 署名-非商业性使用-相同方式共享 4.0 国际 许可协议</a></span>
+        <span class="footer__copyright">由 <a href="https://jekyllrb.com">Jekyll</a> 于 2018-11-22 生成，感谢 <a href="https://www.digitalocean.com/?refcode=30ed2d146762">Digital Ocean</a> 为本站提供稳定的 VPS 服务</span>
+        <span class="footer__copyright">本站由 <a href="http://onev.cat">@onevcat</a> 创建，采用 <a href="https://github.com/onevcat/vno-jekyll">Vno - Jekyll</a> 作为主题，您可以在 GitHub 找到<a href="https://github.com/onevcat/OneV-s-Den">本站源码</a> - &copy; 2018</span>
+    </footer>
+</section>
+
+        </div>
+    </div>
+    
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+    
+  </body>
+
+</html>

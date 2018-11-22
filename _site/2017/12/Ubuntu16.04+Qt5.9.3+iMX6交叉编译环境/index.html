@@ -1,0 +1,280 @@
+<p>#ubuntu16.04+Qt5.9.3搭建交叉编译环境</p>
+
+<h2 id="0-安装交叉编译工具链">0 安装交叉编译工具链</h2>
+
+<p>####0-0 下载交叉编译工具链 linaro版本</p>
+
+<p><strong>gcc-linaro-arm-linux-gnueabihf</strong></p>
+
+<p>解压到任意路径，添加路径到环境变量，profile或~/.bashrc ，然后source</p>
+
+<p><strong>修改profile文件后需要重启生效</strong></p>
+
+<h4 id="0-1输入arm按tab确认环境变量是否正确">0-1输入arm,按tab确认环境变量是否正确</h4>
+
+<p>##1 交叉编译tslib</p>
+
+<p>####1-0 下载tslib-master源码，解压</p>
+
+<p>####1-1 安装工具</p>
+
+<p><code class="highlighter-rouge">apt-get install autoconf automake dh-autoreconf libtool</code></p>
+
+<h4 id="1-2-执行脚本">1-2 执行脚本</h4>
+
+<p><code class="highlighter-rouge">./autogen.sh</code></p>
+
+<p>####1-3 配置</p>
+
+<p><code class="highlighter-rouge">./configure --host=arm-none-linux-gnueabi--cache-file=arm-none-linux-gnueabi.cache --enable-inputapi=no  ac_cv_func_malloc_0_nonnull=yes  --prefix=/opt/tslib/ CC=/home/toolchain/arm-2014.09/bin/arm-linux-gnueabihf-gcc</code></p>
+
+<p><strong>注意CC是交叉编译链的路径</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#### 1-4 编译
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">make</code></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#### 1-5 安装
+</code></pre>
+</div>
+
+<p><code class="highlighter-rouge">make install</code></p>
+
+<h4 id="1-6-移植到开发板修改配置文件和环境变量">1-6 移植到开发板，修改配置文件和环境变量</h4>
+
+<p><strong>1-6-0</strong></p>
+
+<p>通过超级终端，打开tslib文件夹下的etc/ts.conf文件</p>
+
+<p>将# module_raw input一行前面的符号和空格去掉，<strong>注意空格也不能留</strong>。</p>
+
+<p><strong>1-6-1</strong></p>
+
+<p>再打开环境变量文件/etc/profile,并添加相应内容</p>
+
+<p>[root@DCP-3000L usr]# vi /etc/profile</p>
+
+<p>export TSLIB_ROOT=/usr/local/tslib</p>
+
+<p>export TSLIB_TSDEVICE=/dev/input/event2</p>
+
+<p>export QWS_MOUSE_PROTO=tslib:/dev/input/event2</p>
+
+<p>export TSLIB_CALIBFILE=/etc/pointercal</p>
+
+<p>export TSLIB_CONFFILE=$TSLIB_ROOT/etc/ts.conf</p>
+
+<p>export TSLIB_PLUGINDIR=$TSLIB_ROOT/lib/ts</p>
+
+<p>export TSLIB_FBDEVICE=/dev/fb0</p>
+
+<p>export TSLIB_CONSOLEDEVICE=none</p>
+
+<p>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$TSLIB_ROOT/lib</p>
+
+<p>其中，TSLIB_ROOT更换为自己实际存放的路径；</p>
+
+<p>另外，TSLIB_TSDEVICE 和QWS_MOUSE_PROTO这两项需要查看自己的板子的触摸屏设备对应/dev/input/下那个文件</p>
+
+<p><strong>1-6-2</strong></p>
+
+<p>执行测试命令，重启开发板（使系统读取profile环境变量），进入tslib/bin目录，执行触摸屏校准程序</p>
+
+<p>[root@DCP-3000L usr]# ./ts_calibrate</p>
+
+<p>##2.安装Qt5.9.3交叉编译环境</p>
+
+<h4 id="2-1下载qt593-源码xxxxxxrun">2-1下载Qt5.9.3 源码,xxxxxx.run</h4>
+
+<p>添加可执行权限，然后安装，勾选所有套件，直到安装完毕</p>
+
+<h4 id="2-2进入源码目录添加配置文件">2-2进入源码目录，添加配置文件</h4>
+
+<p><code class="highlighter-rouge">touch autoconfig.sh</code></p>
+
+<p><code class="highlighter-rouge">vim  autoconfig.sh</code></p>
+
+<p>./configure \
+-prefix /opt/qt5.9.3-arm\
+-confirm-license \
+-opensource \
+-release  \
+-make libs \
+-xplatform linux-arm-gnueabi-g++ \
+-pch \
+-qt-libjpeg \
+-qt-libpng \
+-qt-zlib \
+-tslib \
+-no-opengl \
+-no-sse2 \
+-no-openssl \
+-no-separate-debug-info \
+-make libs \
+-nomake tools \
+-nomake examples \
+-nomake tests \
+-silent \
+-I /opt/tslib/include \
+-L /opt/tslib/lib \
+-c++std c++11 \
+-strip \
+-no-dbus \
+-no-qml-debug \
+-no-journald \
+-qpa linuxfb -linuxfb \
+-skip qt3d \
+-skip qtandroidextras \
+-skip qtcanvas3d \
+-skip qtdatavis3d \
+-skip qtdoc \
+-skip qtgamepad \
+-skip qtgraphicaleffects \
+-skip qtmacextras \
+-skip qtnetworkauth \
+-skip qtpurchasing \
+-skip qtquickcontrols \
+-skip qtquickcontrols2 \
+-skip qtremoteobjects \
+-skip qtsvg \
+-skip qttools \
+-skip qtwayland \
+-skip qtwebchannel \
+-skip qtwebengine \
+-skip qtwebsockets \
+-skip qtwebview \
+-skip qtx11extras \
+-skip qtwinextras</p>
+
+<p><code class="highlighter-rouge">chmod a+x autoconfig.sh</code></p>
+
+<p><strong>-qt-mouse-tslib: 表示将使用 tslib 来驱动触摸屏;</strong></p>
+
+<p>**-I /home/user/libfile/tslib/include  **</p>
+
+<p><strong>-L /home/user/libfile/tslib/lib   对应的就是上一步移植的tslib的头文件和库文件路径</strong></p>
+
+<p><strong>-prefix=(自己的路径)</strong></p>
+
+<h4 id="2-3安装库arm-linux-gnueabi-ar可选">2-3安装库arm-linux-gnueabi-ar(可选)</h4>
+
+<p><code class="highlighter-rouge">sudo apt install binutils-arm-linux-gnueabi</code></p>
+
+<p><strong>我在make过程中出现了error，根据系统提示安装指定的库可以解决</strong></p>
+
+<h4 id="2-4再次确认环境变量">2-4再次确认环境变量</h4>
+
+<p>建议在/etc/profile  和 ~/.bashrc中都添加交叉工具链的环境变量，然后source</p>
+
+<h4 id="2-5修改qmakeconf文件">2-5修改qmake.conf文件</h4>
+
+<p><code class="highlighter-rouge">cd /home/xxxx/Qt5.9.3/5.9.3/Src/qtbase/mkspecs/linux-arm-gnueabi-g++/</code></p>
+
+<p><code class="highlighter-rouge">vim qmake.conf</code></p>
+
+<p>#</p>
+
+<p># qmakeconfiguration for building with arm-linux-gnueabi-g++</p>
+
+<p>#</p>
+
+<p>MAKEFILE_GENERATOR      = UNIX</p>
+
+<p>CONFIG                 += incremental</p>
+
+<p>QMAKE_INCREMENTAL_STYLE= sublib</p>
+
+<p>include(../common/linux.conf)</p>
+
+<p>include(../common/gcc-base-unix.conf)</p>
+
+<p>include(../common/g++-unix.conf)</p>
+
+<p># modifications tog++.conf</p>
+
+<p>QMAKE_CC                = arm-linux-gnueabihf-gcc -lts</p>
+
+<p>QMAKE_CXX               = arm-linux-gnueabihf-g++ -lts</p>
+
+<p>QMAKE_LINK              = arm-linux-gnueabihf-g++ -lts</p>
+
+<p>QMAKE_LINK_SHLIB  = arm-linux-gnueabihf-g++ -lts</p>
+
+<p><strong>注意添加hf</strong></p>
+
+<p>#modifications tolinux.conf</p>
+
+<p>QMAKE_AR                = arm-linux-gnueabi-ar cqs</p>
+
+<p>QMAKE_OBJCOPY           = arm-linux-gnueabi-objcopy</p>
+
+<p>QMAKE_NM                = arm-linux-gnueabi-nm -P</p>
+
+<p>QMAKE_STRIP             = arm-linux-gnueabi-strip</p>
+
+<p>load(qt_config)</p>
+
+<p>QMAKE_INCDIR =/opt/tslib/include</p>
+
+<p>QMAKE_LIBDIR =/opt/tslib/lib</p>
+
+<h4 id="2-4开始编译">2-4开始编译</h4>
+
+<p><code class="highlighter-rouge">./autoconfig.sh</code></p>
+
+<p><code class="highlighter-rouge">make</code></p>
+
+<p>或</p>
+
+<p><code class="highlighter-rouge">make jx</code></p>
+
+<p><strong>x = 机器核心数</strong></p>
+
+<p>####2-5安装交叉编译后的Qt库</p>
+
+<p><code class="highlighter-rouge">sudo make install</code></p>
+
+<p>然后去/opt／路径下查看安装的文件</p>
+
+<p>####2-6设置qmake-arm的环境变量</p>
+
+<p><code class="highlighter-rouge">alias qmake-arm=/生成qmake的路径</code></p>
+
+<p>source 生效</p>
+
+<p><strong>输入qmake-arm -v 验证版本</strong></p>
+
+<p>至此，Qt的嵌入式开发环境安装完成</p>
+
+<p>###3 移植Qt到开发板</p>
+
+<p><strong>3-0</strong>拷贝上一步搭建好的Qt开发环境库文件至开发板</p>
+
+<p><strong>3-1</strong></p>
+
+<p>打开环境变量文件/etc/profile,并添加相应内容设置环境变量</p>
+
+<p>export QTDIR=/opt/qt5.9.3</p>
+
+<p>export PATH=$QTDIR/bin:$PATH</p>
+
+<p>export LD_LIBRARY_PATH=$QTDIR/lib:$LD_LIBRARY_PATH</p>
+
+<p>export QWS_MOUSE_PROTO=tslib:/dev/input/event2</p>
+
+<p>export QT_QWS_FONTDIR=QTDIR/lib/fonts</p>
+
+<p><strong>3-2</strong></p>
+
+<p>找一个demo应用程序，使用qmake-arm编译</p>
+
+<p><code class="highlighter-rouge">qmake-arm -project</code></p>
+
+<p><code class="highlighter-rouge">qmake-arm</code></p>
+
+<p><code class="highlighter-rouge">make</code></p>
+
+<p>然后拷贝执行程序到开发板验证</p>
+

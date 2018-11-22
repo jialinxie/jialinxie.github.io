@@ -1,0 +1,25 @@
+<div class="language-c highlighter-rouge"><pre class="highlight"><code><span class="cp">#include&lt;stdio.h&gt;
+#include&lt;sys/types.h&gt;
+#include&lt;sys/stat.h&gt;
+#include&lt;fcntl.h&gt;
+#include&lt;unistd.h&gt;
+#include&lt;sys/ioctl.h&gt;
+</span>
+<span class="kt">void</span> <span class="n">main</span><span class="p">(</span><span class="kt">void</span><span class="p">){</span>
+
+	<span class="kt">int</span> <span class="n">fd</span><span class="p">;</span>
+
+	<span class="kt">char</span> <span class="o">*</span><span class="n">hello_node</span> <span class="o">=</span> <span class="s">"/dev/hello_ctl123"</span><span class="p">;</span>
+
+    <span class="k">if</span><span class="p">((</span><span class="n">fd</span> <span class="o">=</span> <span class="n">open</span><span class="p">(</span><span class="n">hello_node</span><span class="p">,</span> <span class="n">O_RDWR</span> <span class="o">|</span> <span class="n">O_NDELAY</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"APP open %s failed"</span><span class="p">,</span> <span class="n">hello_node</span><span class="p">);</span>
+    <span class="p">}</span><span class="k">else</span><span class="p">{</span>
+      <span class="n">printf</span><span class="p">(</span><span class="s">"APP open %s success"</span><span class="p">,</span> <span class="n">hello_node</span><span class="p">);</span>
+      <span class="n">ioctl</span><span class="p">(</span><span class="n">fd</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="n">close</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre>
+</div>
+
