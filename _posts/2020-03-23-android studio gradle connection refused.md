@@ -4,7 +4,7 @@
 
 ## Step0-configure shadowsock
 
-![image-20200323211555353](/Users/jack/Library/Application Support/typora-user-images/image-20200323211555353.png)
+![image-20200323211555353](https://github.com/jialinxie/readme_add_pic/blob/master/post/image-20200323211555353.png)
 
 ##Step1-configure gradle.properties
 
