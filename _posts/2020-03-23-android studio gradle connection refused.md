@@ -4,7 +4,7 @@
 
 ## Step0-configure shadowsock
 
-![image-20200323211555353](https://github.com/jialinxie/readme_add_pic/blob/master/post/image-20200323211555353.png)
+![image-20200323211555353](https://tva1.sinaimg.cn/large/00831rSTgy1gd683vl949j30qw0b60ve.jpg)
 
 ##Step1-configure gradle.properties
 
