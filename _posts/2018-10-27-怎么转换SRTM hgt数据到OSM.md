@@ -12,7 +12,7 @@ Ubuntu16.04 python3.5
 
 ## 第一步 搭建使用环境
 
-####搭建python3.5开发环境
+#### 搭建python3.5开发环境
 
 ####验证
 
@@ -59,7 +59,7 @@ sudo apt-get install python3
 
 安装好了继续第二步
 
-##第二步 下载phyghtmap
+## 第二步 下载phyghtmap
 
 - Source distibution: [phyghtmap_2.20.orig.tar.gz](http://katze.tfiu.de/projects/phyghtmap/phyghtmap_2.20.orig.tar.gz)
 
@@ -150,7 +150,7 @@ phyghtmap 2.20
 
 出现版本号即可使用
 
-##第四步 转换SRTM hgt数据
+## 第四步 转换SRTM hgt数据
 
 自行下载hgt文件到一个指定文件夹，此处假设hgt文件夹路径在~/Download
 
