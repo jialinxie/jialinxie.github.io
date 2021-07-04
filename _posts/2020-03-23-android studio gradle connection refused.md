@@ -6,7 +6,7 @@
 
 ![image-20200323211555353](https://tva1.sinaimg.cn/large/00831rSTgy1gd683vl949j30qw0b60ve.jpg)
 
-##Step1-configure gradle.properties
+## Step1-configure gradle.properties
 
 ```shell
 vim $HOME/.gradle/gradle.properties
