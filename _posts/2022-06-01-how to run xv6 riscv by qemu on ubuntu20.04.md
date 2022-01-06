@@ -1,7 +1,3 @@
-# 2022-06-01-how to run xv6 riscv by qemu on ubuntu20.04
-
-
-
 ## build&install toolchain
 
 ```
@@ -35,10 +31,7 @@ make
 ```
 cd xv6-riscv-fall19/
 make qemu
-```
-
-```qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 1 -nographic -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
-
+qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 1 -nographic -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0
 xv6 kernel is booting
 
 virtio disk init 0
