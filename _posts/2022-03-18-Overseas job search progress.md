@@ -10,6 +10,8 @@ indeed
 
 linkedin
 
+glassdoor
+
 stackoverflow
 
 #### which country?
@@ -19,6 +21,18 @@ Ireland
 Germany
 
 Netherlands
+
+### about visa?
+
+#### ireland
+
+[critical skills job interview authorisation](https://enterprise.gov.ie/en/What-We-Do/Workplace-and-Skills/Employment-Permits/Employment-Permit-Eligibility/Highly-Skilled-Job-Interview-Authorisation/)
+
+3 months, if you find a job in critical skills , you can apply stamp1 visa.
+
+
+
+
 
 ## Prepare for embedded system engineer
 
