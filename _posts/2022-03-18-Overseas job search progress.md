@@ -14,13 +14,17 @@ glassdoor
 
 stackoverflow
 
-#### which country?
+#### which country can provide job seeker visa?
 
 Ireland
 
 Germany
 
-Netherlands
+Netherlands（require too high, do not consider）
+
+Austra
+
+NewZealand
 
 ### about visa?
 
@@ -30,7 +34,21 @@ Netherlands
 
 3 months, if you find a job in critical skills , you can apply stamp1 visa.
 
+#### Germany
 
+[JSV](https://www.germany-visa.org/job-seeker-visa/)
+
+
+
+#### Austra
+
+Red-White-Red Card(least degress is 55)
+
+24 months [visa](https://www.migration.gv.at/en/types-of-immigration/permanent-immigration/)
+
+
+
+#### NewZealand
 
 
 
